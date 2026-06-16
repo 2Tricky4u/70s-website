@@ -1,8 +1,11 @@
-import { motion, useMotionTemplate } from "framer-motion";
+import { motion, useMotionTemplate, type MotionStyle } from "framer-motion";
 import type { Poster } from "../types";
 import { ArchiveImage } from "./ArchiveImage";
 import { Barcode } from "./Barcode";
+import { WornLayer } from "./WornLayer";
+import { DistressedTitle } from "./DistressedTitle";
 import { useTilt } from "../hooks/useTilt";
+import { seeded } from "../lib/grit";
 
 interface PosterCardProps {
   poster: Poster;
@@ -18,6 +21,9 @@ export function PosterCard({ poster, index, onOpen }: PosterCardProps) {
     useTilt(8);
   const baseRot = ROT[index % ROT.length];
   const glare = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.35), transparent 45%)`;
+  // per-card paper crop so no two cards show the same stain
+  const r = seeded(poster.id);
+  const bgPos = `${Math.round(r() * 100)}% ${Math.round(r() * 100)}%`;
 
   return (
     <motion.div
@@ -34,19 +40,31 @@ export function PosterCard({ poster, index, onOpen }: PosterCardProps) {
         onPointerMove={onMove}
         onPointerLeave={onLeave}
         onClick={() => onOpen(poster)}
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        style={
+          {
+            rotateX,
+            rotateY,
+            transformStyle: "preserve-3d",
+            "--paper-pos": bgPos,
+          } as MotionStyle
+        }
         whileHover={{ scale: 1.03, zIndex: 5 }}
         className="ink-border crop-marks paper-panel relative block w-full cursor-pointer text-left"
       >
         {/* ---- header strip ---- */}
-        <div className="flex items-start justify-between gap-2 px-2.5 pb-1.5 pt-2">
-          <h3 className="font-display text-2xl uppercase leading-[0.82] tracking-tightest text-ink sm:text-[26px]">
+        <div className="relative z-[2] flex items-start justify-between gap-2 px-2.5 pb-1.5 pt-2">
+          <DistressedTitle
+            as="h3"
+            seed={poster.id}
+            amount={0.4}
+            className="font-display text-2xl uppercase leading-[0.82] tracking-tightest text-ink sm:text-[26px]"
+          >
             {poster.title.split("\n").map((line, i) => (
               <span key={i} className="block">
                 {line}
               </span>
             ))}
-          </h3>
+          </DistressedTitle>
           <span className="shrink-0 -rotate-3 bg-ink px-1.5 py-0.5 font-display text-base leading-none text-paper">
             '{String(poster.year).slice(2)}
           </span>
@@ -122,6 +140,9 @@ export function PosterCard({ poster, index, onOpen }: PosterCardProps) {
             <span className="block text-orange">OPEN ↗</span>
           </div>
         </div>
+
+        {/* per-card scratches/dust — each card "scanned" differently */}
+        <WornLayer seed={`card-${poster.id}`} amount={0.3} />
       </motion.button>
     </motion.div>
   );

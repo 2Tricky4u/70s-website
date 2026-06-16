@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type { Poster } from "../types";
 import { PosterCard } from "./PosterCard";
+import { WornLayer } from "./WornLayer";
 
 interface PosterGridProps {
   posters: Poster[];
@@ -10,7 +11,8 @@ interface PosterGridProps {
 export function PosterGrid({ posters, onOpen }: PosterGridProps) {
   return (
     <section className="paper-panel relative border-b-2 border-ink">
-      <div className="mx-auto max-w-[1600px] px-3 py-6 sm:px-4 sm:py-8">
+      <WornLayer seed="poster-grid" large amount={0.14} />
+      <div className="relative z-[2] mx-auto max-w-[1600px] px-3 py-6 sm:px-4 sm:py-8">
         <motion.div
           layout
           className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6"

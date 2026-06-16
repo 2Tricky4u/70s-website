@@ -2,22 +2,32 @@ import { motion } from "framer-motion";
 import { COLLECTIONS } from "../data/collections";
 import { ArchiveImage } from "./ArchiveImage";
 import { Crosshair } from "./Crosshair";
+import { WornLayer } from "./WornLayer";
+import { DistressedTitle } from "./DistressedTitle";
 
 export function Collections() {
   return (
     <section
       id="collections"
+      data-tex="c"
       className="ink-panel relative border-b-2 border-ink text-paper"
     >
-      <div className="mx-auto max-w-[1600px] px-4 py-12 sm:py-16">
+      <WornLayer seed="collections-sec" ink amount={0.08} />
+      <div className="relative z-[2] mx-auto max-w-[1600px] px-4 py-12 sm:py-16">
         <header className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-paper/20 pb-4">
           <div>
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-orange">
               SECTION 02 / CURATED
             </span>
-            <h2 className="mt-1 font-display text-5xl uppercase leading-none tracking-tightest sm:text-7xl">
+            <DistressedTitle
+              as="h2"
+              seed="collections-h2"
+              dark
+              rough
+              className="mt-1 font-display text-5xl uppercase leading-none tracking-tightest sm:text-7xl"
+            >
               Collections
-            </h2>
+            </DistressedTitle>
           </div>
           <p className="max-w-xs font-condensed text-sm uppercase leading-snug tracking-[0.05em] text-paper/60">
             Folders pulled from the cabinet. Each one a different room of the
@@ -56,9 +66,14 @@ export function Collections() {
 
               <div className="flex items-start justify-between gap-3 p-4">
                 <div>
-                  <h3 className="font-display text-3xl uppercase leading-none tracking-tightest transition-colors group-hover:text-orange">
+                  <DistressedTitle
+                    as="h3"
+                    seed={c.id}
+                    dark
+                    className="font-display text-3xl uppercase leading-none tracking-tightest transition-colors group-hover:text-orange"
+                  >
                     {c.title}
-                  </h3>
+                  </DistressedTitle>
                   <p className="mt-1.5 max-w-xs font-condensed text-sm leading-snug text-paper/65">
                     {c.blurb}
                   </p>

@@ -1,18 +1,22 @@
 import { motion } from "framer-motion";
 import { Barcode } from "./Barcode";
+import { WornLayer } from "./WornLayer";
+import { distressVars } from "../lib/grit";
 
 export function Manifesto() {
   return (
     <section
       id="about"
+      data-tex="2"
       className="paper-panel relative overflow-hidden border-b-2 border-ink"
     >
+      <WornLayer seed="manifesto-sec" large amount={0.16} />
       {/* marginal vertical tech note */}
-      <span className="writing-vertical absolute right-2 top-1/2 hidden -translate-y-1/2 font-mono text-[10px] uppercase tracking-[0.4em] text-ink/35 lg:block">
+      <span className="writing-vertical absolute right-2 top-1/2 z-[3] hidden -translate-y-1/2 font-mono text-[10px] uppercase tracking-[0.4em] text-ink/35 lg:block">
         MANIFESTO / DOC NN-00 / DO NOT FOLD
       </span>
 
-      <div className="mx-auto max-w-[1300px] px-4 py-14 sm:py-20">
+      <div className="relative z-[2] mx-auto max-w-[1300px] px-4 py-14 sm:py-20">
         <div className="mb-6 flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.3em] text-ink/60">
           <span className="text-orange">SECTION 03</span>
           <span className="h-px flex-1 bg-ink/30" />
@@ -24,7 +28,8 @@ export function Manifesto() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-display text-[10vw] uppercase leading-[0.86] tracking-tightest text-ink sm:text-7xl lg:text-8xl"
+          style={distressVars("manifesto-h2")}
+          className="title-distress title-rough font-display text-[10vw] uppercase leading-[0.86] tracking-tightest text-ink sm:text-7xl lg:text-8xl"
         >
           This is a living archive of{" "}
           <span className="relative text-orange">

@@ -49,12 +49,19 @@ body {
 }
 
 body {
-  /* gritty "stage" margin — same ink as the header/footer panels */
+  /* gritty "stage" margin — original ink + noise at 0.7 over scanned dark paper */
   background-color: var(--ink);
   color: var(--ink);
   font-family: "Oswald", sans-serif;
   overflow-x: hidden;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E"),
+    linear-gradient(rgba(11, 11, 10, 0.7), rgba(11, 11, 10, 0.7)),
+    url("/textures/paper-dark-01.webp");
+  background-size: 160px 160px, cover, cover;
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-position: 0 0, center, center;
+  background-attachment: scroll, scroll, fixed;
 }
 
 ::selection {
@@ -181,6 +188,80 @@ body {
       1.5px 0 0 rgba(59, 110, 165, 0.45);
   }
 
+  /* -------- MEDIUM: scratches + dust overlay (spatially varied) --------
+     textures are dark-on-white; multiply drops the white, leaving marks.
+     Each consumer sets different scratch/dust offsets so no two areas match. */
+  .worn-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+      url("/textures/scratches-01.webp"),
+      url("/textures/dust-01.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:
+      var(--scr-size, 1000px) auto,
+      var(--dust-size, 1200px) auto;
+    background-position:
+      var(--scratch-x, 18%) var(--scratch-y, 12%),
+      var(--dust-x, 72%) var(--dust-y, 38%);
+    mix-blend-mode: multiply;
+    opacity: var(--worn-amt, 0.4);
+    contain: paint;
+  }
+  /* larger sections — fine scratches + soft folds + a faint stain blotch */
+  .worn-overlay-lg {
+    background-image:
+      url("/textures/scratches-01.webp"),
+      url("/textures/folds-01.webp"),
+      url("/textures/stain-01.webp");
+    background-size:
+      var(--scr-size, 1500px) auto,
+      var(--fold-size, 1800px) auto,
+      var(--stain-size, 1600px) auto;
+    background-position:
+      var(--scratch-x, 30%) var(--scratch-y, 20%),
+      var(--fold-x, 60%) var(--fold-y, 0%),
+      var(--stain-x, 80%) var(--stain-y, 70%);
+    opacity: var(--worn-amt, 0.16);
+  }
+  /* dark sections: the marks must LIGHTEN, not multiply into black */
+  .worn-overlay-ink {
+    mix-blend-mode: screen;
+    opacity: var(--worn-amt, 0.06);
+    filter: invert(1);
+  }
+
+  /* -------- TITLE damage: SVG roughen + masked ink-flake + chroma -------- */
+  .title-distress {
+    position: relative;
+    isolation: isolate;
+  }
+  /* paper-coloured flakes punched over the ink letters (ink that flaked off).
+     --distress-bg should match the local surface colour. */
+  .title-distress::after {
+    content: "";
+    position: absolute;
+    inset: -2%;
+    pointer-events: none;
+    background: var(--distress-bg, var(--paper));
+    -webkit-mask-image: var(--distress-tex, url("/textures/ink-distress-01.webp"));
+    mask-image: var(--distress-tex, url("/textures/ink-distress-01.webp"));
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: var(--distress-size, 680px) auto;
+    mask-size: var(--distress-size, 680px) auto;
+    -webkit-mask-position: var(--mask-x, 0px) var(--mask-y, 0px);
+    mask-position: var(--mask-x, 0px) var(--mask-y, 0px);
+    opacity: var(--distress-amt, 0.45);
+    mix-blend-mode: normal;
+  }
+  /* extra edge break-up for the big display titles */
+  .title-rough {
+    filter: url(#roughen);
+  }
+
   /* -------- duotone photo treatment (orange + ink) -------- */
   .duotone {
     filter: grayscale(1) contrast(1.25) brightness(0.92) sepia(0.55)
@@ -289,13 +370,40 @@ body {
     -webkit-text-stroke: 1px var(--paper);
     color: transparent;
   }
+  /* original cream + noise at 0.7, over the scanned cream paper (~30%) */
   .paper-panel {
     background-color: var(--paper);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/%3E%3C/svg%3E");
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/%3E%3C/svg%3E"),
+      linear-gradient(rgba(232, 223, 207, 0.7), rgba(232, 223, 207, 0.7)),
+      url("/textures/paper-light-01.webp");
+    background-size: 160px 160px, cover, cover;
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-position: 0 0, center, var(--paper-pos, center);
   }
+  .paper-panel[data-tex="2"] {
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/%3E%3C/svg%3E"),
+      linear-gradient(rgba(232, 223, 207, 0.7), rgba(232, 223, 207, 0.7)),
+      url("/textures/paper-light-02.webp");
+    background-position: 0 0, center, left bottom;
+  }
+  /* original ink + noise at 0.7, over the scanned dark paper (~30%) */
   .ink-panel {
     background-color: var(--ink);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='pi'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pi)' opacity='0.25'/%3E%3C/svg%3E");
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='pi'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pi)' opacity='0.25'/%3E%3C/svg%3E"),
+      linear-gradient(rgba(11, 11, 10, 0.7), rgba(11, 11, 10, 0.7)),
+      url("/textures/paper-dark-01.webp");
+    background-size: 160px 160px, cover, cover;
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-position: 0 0, center, center;
+  }
+  .ink-panel[data-tex="b"] {
+    background-position: 0 0, center, right top;
+  }
+  .ink-panel[data-tex="c"] {
+    background-position: 0 0, center, left bottom;
   }
   .writing-vertical {
     writing-mode: vertical-rl;

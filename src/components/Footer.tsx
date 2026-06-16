@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Barcode } from "./Barcode";
 import { Crosshair } from "./Crosshair";
+import { WornLayer } from "./WornLayer";
+import { DistressedTitle } from "./DistressedTitle";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -13,17 +15,24 @@ export function Footer() {
       className="ink-panel relative overflow-hidden text-paper"
     >
       <div className="scanlines absolute inset-0 opacity-30" aria-hidden="true" />
+      <WornLayer seed="footer-sec" ink amount={0.07} />
 
       {/* top CTA band */}
-      <div className="relative border-b border-paper/15">
+      <div className="relative z-[2] border-b border-paper/15">
         <div className="mx-auto flex max-w-[1600px] flex-col items-start justify-between gap-6 px-4 py-10 md:flex-row md:items-center">
           <div>
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-orange">
               JOIN THE ARCHIVE
             </span>
-            <h2 className="mt-1 font-display text-4xl uppercase leading-none tracking-tightest sm:text-6xl">
+            <DistressedTitle
+              as="h2"
+              seed="footer-h2"
+              dark
+              rough
+              className="mt-1 font-display text-4xl uppercase leading-none tracking-tightest sm:text-6xl"
+            >
               Submit your memory
-            </h2>
+            </DistressedTitle>
           </div>
 
           <form

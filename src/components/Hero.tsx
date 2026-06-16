@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArchiveImage } from "./ArchiveImage";
 import { Barcode } from "./Barcode";
 import { AimMark } from "./AimMark";
+import { WornLayer } from "./WornLayer";
+import { distressVars } from "../lib/grit";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -44,6 +46,9 @@ export function Hero() {
         aria-hidden="true"
       />
 
+      {/* medium scratches/dust/folds over the hero */}
+      <WornLayer seed="hero-sec" large amount={0.16} />
+
       <div className="relative z-10 mx-auto grid max-w-[1600px] grid-cols-1 gap-6 px-4 pb-10 pt-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-4 lg:pb-16 lg:pt-14">
         {/* ---------- left: type ---------- */}
         <motion.div style={{ y: yText, opacity: fade }} className="flex flex-col">
@@ -55,11 +60,14 @@ export function Hero() {
             <AimMark className="h-4 w-4 text-ink/55" small />
           </div>
 
-          <h1 className="font-display leading-[0.82] tracking-tightest">
+          <h1
+            style={distressVars("hero-title")}
+            className="title-distress title-rough chroma font-display leading-[0.82] tracking-tightest"
+          >
             <span className="block text-[18vw] sm:text-[15vw] lg:text-[10.5vw]">
               NINETEEN
             </span>
-            <span className="chroma block text-[18vw] text-ink sm:text-[15vw] lg:text-[10.5vw]">
+            <span className="block text-[18vw] text-ink sm:text-[15vw] lg:text-[10.5vw]">
               NINETY
             </span>
           </h1>
