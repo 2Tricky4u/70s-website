@@ -1,4 +1,5 @@
 import { Barcode } from "./Barcode";
+import { AimMark } from "./AimMark";
 
 /** Thin black technical system header (top of page). */
 export function SystemHeader() {
@@ -10,7 +11,7 @@ export function SystemHeader() {
       <div className="relative z-10 mx-auto flex max-w-[1600px] items-stretch justify-between gap-3 px-3 py-2.5 sm:py-3">
         {/* ---------------- left cluster ---------------- */}
         <div className="flex items-center gap-3 sm:gap-4">
-          <AimLogo className="h-9 w-9 shrink-0 text-paper/85 sm:h-11 sm:w-11" />
+          <AimMark className="h-9 w-9 shrink-0 text-paper/85 sm:h-11 sm:w-11" />
           {/* stacked coordinates */}
           <div className="flex flex-col justify-center font-mono text-[9px] leading-[1.35] tracking-[0.12em] text-paper/85 sm:text-[11px]">
             <span>40.7128° N</span>
@@ -47,67 +48,12 @@ export function SystemHeader() {
           </span>
           <span className="hidden text-paper/40 md:inline">·</span>
           <div className="flex items-center gap-2.5">
-            <AimLogo className="hidden h-7 w-7 text-paper/75 sm:block" small />
+            <AimMark className="hidden h-7 w-7 text-paper/75 sm:block" small />
             <Globe className="hidden h-7 w-7 text-paper/75 sm:block" />
           </div>
         </div>
       </div>
     </div>
-  );
-}
-
-/** target reticle. small = simple single-ring "+" mark (aim.png);
- *  large = double-ring, centre dot, four end-bracket ticks (aim2.png) */
-function AimLogo({
-  className = "",
-  small = false,
-}: {
-  className?: string;
-  small?: boolean;
-}) {
-  if (small) {
-    return (
-      <svg
-        viewBox="0 0 48 48"
-        className={className}
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="butt"
-        aria-hidden="true"
-      >
-        <g filter="url(#roughen)">
-          <circle cx="24" cy="24" r="13" strokeWidth={1.3} />
-          {/* crosshair arms */}
-          <line x1="1.5" y1="24" x2="15" y2="24" strokeWidth={1.3} />
-          <line x1="33" y1="24" x2="46.5" y2="24" strokeWidth={1.3} />
-          <line x1="24" y1="5" x2="24" y2="16" strokeWidth={1.3} />
-          <line x1="24" y1="32" x2="24" y2="43" strokeWidth={1.3} />
-          {/* bold centre plus */}
-          <line x1="24" y1="20.5" x2="24" y2="27.5" strokeWidth={2.1} />
-          <line x1="20.5" y1="24" x2="27.5" y2="24" strokeWidth={2.1} />
-        </g>
-      </svg>
-    );
-  }
-
-  return (
-    <svg
-      viewBox="0 0 48 48"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="butt"
-      aria-hidden="true"
-    >
-      <g filter="url(#roughen)">
-        {/* concentric rings */}
-        <circle cx="24" cy="24" r="13.5" strokeWidth={1.3} />
-        <circle cx="24" cy="24" r="7.5" strokeWidth={1.1} />
-        {/* crosshair arms straight across */}
-        <line x1="1.5" y1="24" x2="46.5" y2="24" strokeWidth={1.3} />
-        <line x1="24" y1="4" x2="24" y2="44" strokeWidth={1.3} />
-      </g>
-    </svg>
   );
 }
 

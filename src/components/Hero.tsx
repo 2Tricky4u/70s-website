@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArchiveImage } from "./ArchiveImage";
 import { Barcode } from "./Barcode";
-import { Crosshair } from "./Crosshair";
+import { AimMark } from "./AimMark";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -47,11 +47,12 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid max-w-[1600px] grid-cols-1 gap-6 px-4 pb-10 pt-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-4 lg:pb-16 lg:pt-14">
         {/* ---------- left: type ---------- */}
         <motion.div style={{ y: yText, opacity: fade }} className="flex flex-col">
-          <div className="mb-3 flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.3em] text-ink/70">
-            <span className="text-orange">1990</span>
-            <span className="h-px w-10 bg-ink/40" />
+          <div className="mb-3 flex items-center gap-2.5 font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-orange">
+            <AimMark className="h-4 w-4 text-ink/55" small />
+            <span>1990</span>
+            <span className="h-[2px] w-2.5 bg-orange" />
             <span>1999</span>
-            <Crosshair className="h-3.5 w-3.5 text-ink/60" />
+            <AimMark className="h-4 w-4 text-ink/55" small />
           </div>
 
           <h1 className="font-display leading-[0.82] tracking-tightest">
@@ -67,25 +68,27 @@ export function Hero() {
             A personal photo archive of a decade that built us.
           </p>
 
-          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[11px] uppercase tracking-[0.25em] text-ink/70">
-            <span>
-              MEMORIES. <span className="text-orange">MOMENTS.</span> MAYHEM.
-            </span>
+          <div className="mt-5 flex flex-col gap-1 font-mono text-[11px] font-semibold uppercase tracking-[0.25em]">
+            <span className="text-ink/75">MEMORIES. MOMENTS. MAYHEM.</span>
+            <span className="text-orange">THIS IS THE 90S.</span>
           </div>
 
-          <div className="mt-auto flex flex-wrap items-end gap-5 pt-8">
-            <div className="flex flex-col gap-1">
-              <Barcode seed="hero-found" className="h-7 w-40" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink/60">
-                FOUND MEMORIES
+          <div className="mt-auto flex flex-wrap items-end justify-between gap-x-8 gap-y-5 pt-8">
+            {/* dense, fine barcode with FOUND MEMORIES to its right */}
+            <div className="flex items-center gap-3">
+              <Barcode seed="hero-found" bars={82} className="h-8 w-32" />
+              <span className="whitespace-nowrap font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-ink/65">
+                Found Memories
               </span>
             </div>
+
+            {/* understated, integrated scroll cue */}
             <a
               href="#archive"
-              className="group flex items-center gap-2 border border-ink bg-ink px-4 py-2 font-condensed text-xs uppercase tracking-[0.25em] text-paper transition hover:bg-orange hover:text-ink"
+              className="group flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-ink/70 transition-colors hover:text-orange"
             >
-              <span className="animate-bounce">↓</span>
-              <span>Scroll to explore</span>
+              <span className="animate-bounce text-orange">↓</span>
+              <span className="nav-scan">Scroll to explore</span>
             </a>
           </div>
         </motion.div>
@@ -116,12 +119,27 @@ export function Hero() {
               }}
             />
 
-            <div className="absolute left-3 top-3 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/80">
+            <div className="absolute left-3 top-3 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-paper/80">
               REEL 01 / FRAME 1990
             </div>
-            <button className="absolute bottom-3 right-3 flex items-center gap-2 border border-paper/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/90 transition hover:border-orange hover:text-orange">
-              PLAY ▸
+
+            {/* PLAY — text + solid triangle, no box (like the reference) */}
+            <button className="group absolute right-3 top-2.5 flex items-center gap-2 font-condensed text-base font-semibold uppercase tracking-[0.35em] text-paper/90 transition-colors hover:text-orange">
+              Play
+              <span className="text-[11px] tracking-normal transition-transform group-hover:translate-x-0.5">
+                ▶
+              </span>
             </button>
+
+            {/* vertical archival microtype along the right edge */}
+            <div className="writing-vertical absolute right-1 top-1/2 -translate-y-1/2 select-none font-mono text-[9px] font-semibold uppercase tracking-[0.3em] text-paper/55">
+              TC 00:19:90:00 · REEL 01 ·{" "}
+              <span className="text-orange">FOUND FOOTAGE</span> · STOCK 35MM
+            </div>
+
+            <div className="absolute bottom-3 left-3 font-mono text-[9px] uppercase tracking-[0.25em] text-paper/55">
+              FIG. 01 — NINETEEN NINETY
+            </div>
           </div>
 
           {/* circular "90" archive stamp */}
@@ -136,23 +154,33 @@ export function Hero() {
 
 function NinetyStamp() {
   return (
-    <div className="relative grid h-24 w-24 place-items-center rounded-full border-2 border-orange text-orange animate-wobble sm:h-28 sm:w-28">
-      <span className="font-display text-5xl leading-none sm:text-6xl">90</span>
+    <div className="relative grid h-28 w-28 place-items-center sm:h-36 sm:w-36">
+      {/* grunge globe "'90" emblem */}
+      <img
+        src="/logo.png"
+        alt="Nineteen Ninety archive stamp"
+        className="absolute inset-[16%] h-[68%] w-[68%] animate-wobble object-contain"
+      />
+      {/* curved archive text turning all the way around the emblem */}
       <svg
         viewBox="0 0 120 120"
-        className="absolute inset-0 h-full w-full animate-[spin_22s_linear_infinite]"
+        className="absolute inset-0 h-full w-full animate-[spin_26s_linear_infinite]"
         aria-hidden="true"
       >
         <defs>
           <path
             id="stamp-arc"
-            d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"
+            d="M60,60 m-53,0 a53,53 0 1,1 106,0 a53,53 0 1,1 -106,0"
             fill="none"
           />
         </defs>
-        <text className="fill-orange font-mono text-[10px] uppercase tracking-[0.3em]">
+        <text
+          className="fill-orange font-mono text-[8.5px] font-bold uppercase"
+          textLength="333"
+          lengthAdjust="spacing"
+        >
           <textPath href="#stamp-arc" startOffset="0">
-            · CERTIFIED ARCHIVE · NINETEEN NINETY · FOUND FOOTAGE ·
+            NINETEEN NINETY · PHOTO ARCHIVE ·
           </textPath>
         </text>
       </svg>
