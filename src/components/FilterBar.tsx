@@ -26,7 +26,7 @@ export function FilterBar({ active, onChange, count }: FilterBarProps) {
               <button
                 key={f}
                 onClick={() => onChange(f)}
-                className={`relative whitespace-nowrap border px-3 py-1 font-condensed text-[12px] uppercase tracking-[0.18em] transition-all duration-200 ${
+                className={`relative whitespace-nowrap border px-3 py-1 font-plex text-[11px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 ${
                   isActive
                     ? "border-orange bg-orange text-ink"
                     : "border-paper/30 text-paper/75 hover:border-orange hover:text-orange"

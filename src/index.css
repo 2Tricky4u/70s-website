@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* self-hosted so the client always renders them, even if not installed */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("IBM Plex Mono SemiBold"),
+    url("/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("Roboto Mono SemiBold"),
+    url("/fonts/RobotoMono-SemiBold.ttf") format("truetype");
+}
+
 /* ============================================================
    NINETEEN NINETY — global print/archive texture system
    ============================================================ */

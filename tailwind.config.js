@@ -31,7 +31,9 @@ export default {
         display: ['"Anton"', '"Oswald"', "Impact", "sans-serif"],
         condensed: ['"Oswald"', '"Bebas Neue"', "sans-serif"],
         bebas: ['"Bebas Neue"', '"Oswald"', "sans-serif"],
-        mono: ['"Space Mono"', '"JetBrains Mono"', "monospace"],
+        mono: ['"Roboto Mono"', '"Space Mono"', '"JetBrains Mono"', "monospace"],
+        // menu + tag selection — IBM Plex Mono SemiBold, condensed as fallback
+        plex: ['"IBM Plex Mono"', '"Oswald"', '"Space Mono"', "monospace"],
       },
       letterSpacing: {
         tightest: "-0.06em",

@@ -1,8 +1,8 @@
 import { Fragment, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Crosshair } from "./Crosshair";
-
-const LINKS = ["Home", "Archive", "Collections", "Zines", "About", "Contact"];
+import { MenuGlyph } from "./MenuGlyph";
+import { NAV_LINKS as LINKS } from "../data/nav";
 
 /** Main horizontal navigation on the paper, sits under the system header. */
 export function Navigation() {
@@ -10,9 +10,9 @@ export function Navigation() {
 
   return (
     <nav className="relative z-40 border-b border-ink/55 bg-paper/40 backdrop-blur-[1px]">
-      <div className="mx-auto flex max-w-[1600px] items-stretch justify-between">
+      <div className="relative z-10 mx-auto flex max-w-[1600px] items-stretch justify-between">
         {/* desktop links */}
-        <ul className="hidden items-stretch font-condensed text-[13px] font-medium uppercase tracking-[0.2em] md:flex">
+        <ul className="hidden items-stretch font-plex text-[12px] font-semibold uppercase tracking-[0.08em] md:flex">
           {LINKS.map((link, i) => (
             <Fragment key={link}>
               <li className="flex">
@@ -46,7 +46,7 @@ export function Navigation() {
           <span className="hidden items-center px-4 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/45 lg:flex">
             REC ● 1990—1999
           </span>
-          <button className="nav-scan group hidden items-center gap-1.5 px-4 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] text-ink/80 transition hover:text-orange md:flex">
+          <button className="nav-scan group hidden cursor-pointer items-center gap-1.5 px-4 font-plex text-[12px] font-semibold uppercase tracking-[0.08em] text-ink/80 transition hover:text-orange md:flex">
             <Crosshair className="h-3.5 w-3.5 text-orange" strokeWidth={1.6} />
             Search
           </button>
@@ -54,27 +54,10 @@ export function Navigation() {
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
-            className="group flex items-center gap-2.5 self-stretch border-l border-ink/55 px-4 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] text-ink transition hover:bg-ink hover:text-paper lg:px-5"
+            className="flex cursor-pointer items-center gap-2.5 self-stretch border-l border-ink/55 px-4 font-plex text-[12px] font-semibold uppercase tracking-[0.08em] text-ink transition hover:bg-ink hover:text-paper lg:px-5"
           >
             Menu
-            {/* three-line menu glyph */}
-            <span className="flex flex-col gap-[3px]" aria-hidden="true">
-              <span
-                className={`block h-[2px] w-4 bg-orange transition-transform duration-200 ${
-                  open ? "translate-y-[5px] rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`block h-[2px] w-4 bg-current transition-opacity duration-200 ${
-                  open ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`block h-[2px] w-4 bg-orange transition-transform duration-200 ${
-                  open ? "-translate-y-[5px] -rotate-45" : ""
-                }`}
-              />
-            </span>
+            <MenuGlyph open={open} />
           </button>
         </div>
       </div>
@@ -94,7 +77,7 @@ export function Navigation() {
                 <a
                   href={`#${link.toLowerCase()}`}
                   onClick={() => setOpen(false)}
-                  className={`block px-5 py-3 font-condensed text-sm uppercase tracking-[0.25em] ${
+                  className={`block px-5 py-3 font-plex text-[13px] font-semibold uppercase tracking-[0.12em] ${
                     i === 0 ? "text-orange" : "text-ink/85"
                   }`}
                 >

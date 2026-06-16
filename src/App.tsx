@@ -4,6 +4,7 @@ import type { Poster } from "./types";
 import { GrainOverlay } from "./components/GrainOverlay";
 import { CursorGlow } from "./components/CursorGlow";
 import { DistressDefs } from "./components/DistressDefs";
+import { FloatingMenu } from "./components/FloatingMenu";
 import { SystemHeader } from "./components/SystemHeader";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
@@ -49,6 +50,7 @@ export default function App() {
       <DistressDefs />
       <GrainOverlay />
       <CursorGlow />
+      <FloatingMenu />
 
       {/* full-bleed system band (blends edge-to-edge with the dark stage) */}
       <SystemHeader />
