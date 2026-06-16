@@ -45,7 +45,7 @@ export function ReactiveWaveform({
   }, [getAnalyser, playing, bars]);
 
   return (
-    <div className={`flex items-end gap-[2px] ${className}`} aria-hidden="true">
+    <div className={`flex items-end gap-px ${className}`} aria-hidden="true">
       {Array.from({ length: bars }).map((_, i) => (
         <span
           key={i}

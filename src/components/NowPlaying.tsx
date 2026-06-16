@@ -43,7 +43,7 @@ export function NowPlaying({
       </button>
 
       <div
-        className={`min-w-0 whitespace-nowrap font-mono text-[9px] uppercase leading-[1.5] tracking-[0.12em] ${titleClass}`}
+        className={`shrink-0 whitespace-nowrap font-mono text-[9px] uppercase leading-[1.5] tracking-[0.12em] ${titleClass}`}
       >
         <span className="block text-paper/55">NOW PLAYING</span>
         <span className="block text-paper">{track.title}</span>

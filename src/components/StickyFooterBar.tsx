@@ -41,7 +41,7 @@ export function StickyFooterBar() {
       initial={false}
       animate={{ y: atFooter ? "110%" : "0%" }}
       transition={{ duration: 0.45, ease: [0.2, 0.8, 0.2, 1] }}
-      className="ink-panel fixed inset-x-0 bottom-0 z-[94] border-t-2 border-ink text-paper shadow-[0_-14px_36px_rgba(0,0,0,0.55)]"
+      className="ink-panel fixed inset-x-0 bottom-0 z-[94] overflow-hidden border-t-2 border-ink text-paper shadow-[0_-14px_36px_rgba(0,0,0,0.55)]"
     >
       <div
         className="scanlines pointer-events-none absolute inset-0 opacity-30"
@@ -67,7 +67,7 @@ export function StickyFooterBar() {
           <Sep className="hidden lg:block" />
           <NowPlaying
             bars={40}
-            waveClass="h-7 w-16 sm:w-28 md:w-40 lg:w-44 xl:w-56"
+            waveClass="h-7 w-28 sm:w-32 md:w-44 lg:w-48 xl:w-56"
             controlsClass="hidden md:flex"
           />
         </div>

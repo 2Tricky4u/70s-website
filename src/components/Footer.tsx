@@ -81,7 +81,12 @@ export function Footer() {
           <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-paper/55">
             ● ARCHIVE RADIO
           </span>
-          <NowPlaying bars={32} waveClass="h-10 w-full" showMeta className="gap-4" />
+          <NowPlaying
+            bars={36}
+            waveClass="h-10 min-w-0 flex-1"
+            showMeta
+            className="gap-4"
+          />
         </div>
 
         {/* index */}
