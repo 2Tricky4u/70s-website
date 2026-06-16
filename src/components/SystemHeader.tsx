@@ -57,10 +57,11 @@ export function SystemHeader() {
             seed="header-bar"
             color="#e8dfcf"
             bars={42}
-            className="hidden h-7 w-20 opacity-85 sm:block lg:w-28"
+            label="KSDT.CIRIS.0018"
+            className="hidden h-9 w-28 opacity-85 sm:flex lg:w-36"
           />
           <span className="hidden self-center font-mono text-[10px] tracking-[0.14em] text-paper/70 md:inline">
-            ARCHIVE.ID 1990-0001
+            ARCV.1990.0018
           </span>
           <span className="hidden text-paper/40 md:inline">·</span>
           <div className="flex items-center gap-2.5">
@@ -73,7 +74,8 @@ export function SystemHeader() {
   );
 }
 
-/** worn concentric target with crosshair — distressed, no box brackets */
+/** target reticle. small = simple single-ring "+" mark (aim.png);
+ *  large = double-ring, centre dot, four end-bracket ticks (aim2.png) */
 function AimLogo({
   className = "",
   small = false,
@@ -81,34 +83,53 @@ function AimLogo({
   className?: string;
   small?: boolean;
 }) {
+  if (small) {
+    return (
+      <svg
+        viewBox="0 0 48 48"
+        className={className}
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="butt"
+        aria-hidden="true"
+      >
+        <g filter="url(#roughen)">
+          <circle cx="24" cy="24" r="13" strokeWidth={1.3} />
+          {/* crosshair arms */}
+          <line x1="1.5" y1="24" x2="15" y2="24" strokeWidth={1.3} />
+          <line x1="33" y1="24" x2="46.5" y2="24" strokeWidth={1.3} />
+          <line x1="24" y1="5" x2="24" y2="16" strokeWidth={1.3} />
+          <line x1="24" y1="32" x2="24" y2="43" strokeWidth={1.3} />
+          {/* bold centre plus */}
+          <line x1="24" y1="20.5" x2="24" y2="27.5" strokeWidth={2.1} />
+          <line x1="20.5" y1="24" x2="27.5" y2="24" strokeWidth={2.1} />
+        </g>
+      </svg>
+    );
+  }
+
   return (
     <svg
       viewBox="0 0 48 48"
       className={className}
       fill="none"
       stroke="currentColor"
-      strokeLinecap="round"
+      strokeLinecap="butt"
       aria-hidden="true"
     >
-      {/* roughened ink group: uneven weights + slightly off-centre rings */}
       <g filter="url(#roughen)">
-        {!small && (
-          <circle cx="23.4" cy="24.3" r="15" strokeWidth={1.1} opacity={0.7} />
-        )}
-        <circle cx="24.2" cy="23.7" r="10.4" strokeWidth={1.8} />
-        <circle cx="23.8" cy="24.1" r="5.2" strokeWidth={1.3} opacity={0.85} />
-        <circle cx="24" cy="24" r="1.9" fill="currentColor" stroke="none" />
-        {/* crosshair lines — varied length / weight, not touching the rings */}
-        <line x1="24" y1="3.5" x2="24" y2="12" strokeWidth={1.6} />
-        <line x1="24" y1="36" x2="24" y2="45" strokeWidth={1.1} opacity={0.8} />
-        <line x1="3.5" y1="24" x2="12.5" y2="24" strokeWidth={1.2} opacity={0.85} />
-        <line x1="36" y1="24" x2="44.5" y2="24" strokeWidth={1.6} />
+        {/* concentric rings */}
+        <circle cx="24" cy="24" r="13.5" strokeWidth={1.3} />
+        <circle cx="24" cy="24" r="7.5" strokeWidth={1.1} />
+        {/* crosshair arms straight across */}
+        <line x1="1.5" y1="24" x2="46.5" y2="24" strokeWidth={1.3} />
+        <line x1="24" y1="4" x2="24" y2="44" strokeWidth={1.3} />
       </g>
     </svg>
   );
 }
 
-/** worn latitude/longitude globe glyph — distressed, broken meridians */
+/** wireframe globe — circle, curved meridians, latitude lines */
 function Globe({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -120,11 +141,14 @@ function Globe({ className = "" }: { className?: string }) {
       aria-hidden="true"
     >
       <g filter="url(#roughen-2)">
-        <circle cx="24.2" cy="23.8" r="18" strokeWidth={1.7} />
-        <ellipse cx="23.7" cy="24.2" rx="8.4" ry="18" strokeWidth={1.1} opacity={0.8} />
-        <line x1="6.5" y1="24" x2="41" y2="24" strokeWidth={1.5} />
-        <line x1="10" y1="14.2" x2="38" y2="13.6" strokeWidth={1} opacity={0.75} />
-        <line x1="9.5" y1="34" x2="38.5" y2="34.4" strokeWidth={1} opacity={0.75} />
+        <circle cx="24" cy="24" r="17.5" strokeWidth={1.4} />
+        {/* meridians (vertical) */}
+        <ellipse cx="24" cy="24" rx="6.5" ry="17.5" strokeWidth={1.1} />
+        <ellipse cx="24" cy="24" rx="13.5" ry="17.5" strokeWidth={1} opacity={0.7} />
+        {/* latitude lines (horizontal) */}
+        <line x1="6.5" y1="24" x2="41.5" y2="24" strokeWidth={1.2} />
+        <line x1="11" y1="14" x2="37" y2="14" strokeWidth={1} opacity={0.75} />
+        <line x1="11" y1="34" x2="37" y2="34" strokeWidth={1} opacity={0.75} />
       </g>
     </svg>
   );

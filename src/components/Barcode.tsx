@@ -6,6 +6,9 @@ interface BarcodeProps {
   className?: string;
   bars?: number;
   color?: string;
+  /** human-readable code(s) rendered beneath the bars (like a real barcode).
+   *  Pass an array for multiple stacked lines. */
+  label?: string | string[];
 }
 
 /** deterministic pseudo-random barcode from a seed */
@@ -29,6 +32,7 @@ export function Barcode({
   className = "",
   bars = 34,
   color = "#0b0b0a",
+  label,
 }: BarcodeProps) {
   const widths = useMemo(() => {
     const rnd = seeded(seed);
@@ -38,11 +42,11 @@ export function Barcode({
   }, [seed, bars]);
 
   let x = 0;
-  return (
+  const svg = (
     <svg
       viewBox="0 0 100 30"
       preserveAspectRatio="none"
-      className={className}
+      className={label ? "block w-full flex-1" : className}
       aria-hidden="true"
     >
       {widths.map((w, i) => {
@@ -60,5 +64,24 @@ export function Barcode({
         return rect;
       })}
     </svg>
+  );
+
+  if (!label) return svg;
+
+  const lines = Array.isArray(label) ? label : [label];
+
+  return (
+    <span className={`flex-col items-stretch ${className}`}>
+      {svg}
+      {lines.map((line, i) => (
+        <span
+          key={i}
+          className="mt-[2px] block text-center font-mono text-[7px] uppercase leading-none tracking-[0.22em] sm:text-[8px]"
+          style={{ color }}
+        >
+          {line}
+        </span>
+      ))}
+    </span>
   );
 }

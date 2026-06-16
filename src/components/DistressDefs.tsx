@@ -13,10 +13,12 @@ export function DistressDefs() {
       style={{ position: "absolute" }}
     >
       <defs>
-        <filter id="roughen" x="-25%" y="-25%" width="150%" height="150%">
+        {/* very subtle warp — just enough to kill the laser-perfect vector
+            edge so the mark sits in the print, not a heavy deformation */}
+        <filter id="roughen" x="-15%" y="-15%" width="130%" height="130%">
           <feTurbulence
-            type="turbulence"
-            baseFrequency="0.05 0.07"
+            type="fractalNoise"
+            baseFrequency="0.018 0.024"
             numOctaves="2"
             seed="7"
             result="noise"
@@ -24,16 +26,16 @@ export function DistressDefs() {
           <feDisplacementMap
             in="SourceGraphic"
             in2="noise"
-            scale="2.4"
+            scale="0.7"
             xChannelSelector="R"
             yChannelSelector="G"
           />
         </filter>
 
-        <filter id="roughen-2" x="-25%" y="-25%" width="150%" height="150%">
+        <filter id="roughen-2" x="-15%" y="-15%" width="130%" height="130%">
           <feTurbulence
-            type="turbulence"
-            baseFrequency="0.07 0.09"
+            type="fractalNoise"
+            baseFrequency="0.02 0.026"
             numOctaves="2"
             seed="19"
             result="noise"
@@ -41,7 +43,7 @@ export function DistressDefs() {
           <feDisplacementMap
             in="SourceGraphic"
             in2="noise"
-            scale="2"
+            scale="0.7"
             xChannelSelector="R"
             yChannelSelector="G"
           />
