@@ -1,0 +1,18 @@
+Design a gritty underground electronic music event poster in an industrial techno rave aesthetic. Use a portrait-oriented flyer layout with distressed off-white paper background, heavy grain, halftone print texture, scratches, worn edges, and subtle scan imperfections. 
+
+Create a bold editorial composition with massive condensed all-caps sans-serif typography dominating the upper half, tightly kerned and partially layered behind a dramatic central subject. Use a limited color palette of black, dirty cream, burnt neon orange, and subtle cold blue/purple light leaks. 
+
+The central artwork should be a high-contrast cinematic collage: a moody side-lit portrait or main visual subject, urban industrial night scenery, cranes, warehouse structures, city skyline, stage lights, smoke, and a dense crowd silhouette near the bottom. Add small technical UI markings, coordinate-like text, circular targeting symbols, barcode elements, frequency labels, and microtypography around the edges.
+
+Make the poster feel like a worn printed rave flyer from an underground dockside techno event: raw, intense, dark, futuristic, industrial, high-energy, and cinematic. Strong visual hierarchy, bold headline, smaller spaced-out event metadata, lineup block at the bottom, and authentic distressed print finish.
+
+
+PLACEHOLDER:
+Create a gritty underground techno event poster for “[EVENT NAME]” featuring “[MAIN SUBJECT / ARTIST / THEME]”. Use a distressed off-white printed paper background with heavy grain, halftone texture, scratches, worn edges, and scanned flyer imperfections.
+
+Use massive condensed all-caps typography for “[MAIN TITLE]”, black and dirty cream lettering, with burnt neon orange accents. Compose a cinematic collage with the main subject in the center, industrial urban scenery in the background, stage lights, smoke, crowd silhouettes, and subtle cold blue/purple light leaks. Add technical markings, frequency labels, coordinates, barcode, circular target symbols, and tiny vertical microtext.
+
+Mood: underground dockside rave, industrial techno, dark cyberpunk, raw, intense, cinematic, high-energy. Strong hierarchy: date and organizer at top, huge event title, central artwork, lineup block, venue and time at bottom.
+
+CONCISE:
+Gritty underground techno rave poster, industrial cyberpunk flyer aesthetic, distressed off-white paper, heavy black and burnt orange palette, halftone grain, scratches, worn print texture, massive condensed all-caps typography, dramatic central portrait layered over dockyard/city skyline/stage/crowd collage, orange smoke and light leaks, small technical markings, barcode, coordinates, target symbols, microtype, bold editorial layout, dark cinematic high-contrast urban energy.

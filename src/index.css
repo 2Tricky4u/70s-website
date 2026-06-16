@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   NINETEEN NINETY — global print/archive texture system
+   ============================================================ */
+
+:root {
+  --paper: #e8dfcf;
+  --paper-dark: #ddd2bd;
+  --ink: #0b0b0a;
+  --orange: #ff4b0b;
+  --orange-soft: #f05a1a;
+  --sepia: #7c6f5a;
+  --grain-opacity: 0.09;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "Oswald", sans-serif;
+  overflow-x: hidden;
+  /* layered paper grit: warm vignette + fibre noise */
+  background-image:
+    radial-gradient(
+      ellipse at 18% 12%,
+      rgba(255, 75, 11, 0.05),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 82% 88%,
+      rgba(106, 90, 205, 0.04),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(11, 11, 10, 0) 55%,
+      rgba(11, 11, 10, 0.14) 100%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-attachment: fixed, fixed, fixed, fixed;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--paper);
+}
+
+/* thin sepia scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border: 2px solid var(--paper-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}
+
+@layer components {
+  /* -------- animated film grain overlay (full page) -------- */
+  .grain-layer {
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 90;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    will-change: transform;
+  }
+
+  /* -------- scanlines overlay -------- */
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(11, 11, 10, 0.12) 0px,
+      rgba(11, 11, 10, 0.12) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+  }
+
+  /* -------- halftone dot field -------- */
+  .halftone {
+    background-image: radial-gradient(
+      var(--ink) 28%,
+      transparent 29%
+    );
+    background-size: 5px 5px;
+  }
+  .halftone-orange {
+    background-image: radial-gradient(
+      var(--orange) 30%,
+      transparent 31%
+    );
+    background-size: 6px 6px;
+  }
+
+  /* -------- distressed ink border -------- */
+  .ink-border {
+    box-shadow:
+      0 0 0 1.5px var(--ink),
+      inset 0 0 0 1px rgba(11, 11, 10, 0.4);
+    position: relative;
+  }
+  .ink-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.04' numOctaves='3'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='6'/%3E%3C/filter%3E%3Crect x='2' y='2' width='116' height='116' fill='none' stroke='%230b0b0a' stroke-width='2' filter='url(%23r)' opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    mix-blend-mode: multiply;
+    opacity: 0.6;
+  }
+
+  /* -------- light leak (orange/violet warm bloom) -------- */
+  .light-leak {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        circle at 78% 18%,
+        rgba(255, 75, 11, 0.55),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at 12% 88%,
+        rgba(255, 120, 40, 0.3),
+        transparent 50%
+      );
+    mix-blend-mode: screen;
+  }
+
+  /* -------- chromatic split text (subtle RGB offset) -------- */
+  .chroma {
+    text-shadow:
+      -1.5px 0 0 rgba(255, 75, 11, 0.55),
+      1.5px 0 0 rgba(59, 110, 165, 0.45);
+  }
+
+  /* -------- duotone photo treatment (orange + ink) -------- */
+  .duotone {
+    filter: grayscale(1) contrast(1.25) brightness(0.92) sepia(0.55)
+      hue-rotate(-18deg) saturate(2.2);
+  }
+  .duotone-deep {
+    filter: grayscale(1) contrast(1.45) brightness(0.7) sepia(0.7)
+      hue-rotate(-20deg) saturate(2.6);
+  }
+
+  /* photo wrapper that multiplies an ink tint over the image */
+  .photo-ink {
+    position: relative;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .photo-ink::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(11, 11, 10, 0.1),
+      rgba(11, 11, 10, 0.65)
+    );
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  /* procedural CSS-only fallback photo (no remote image) */
+  .photo-fallback {
+    background-color: #14110d;
+    background-image:
+      radial-gradient(
+        circle at 30% 20%,
+        rgba(255, 75, 11, 0.55),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 75% 80%,
+        rgba(255, 120, 40, 0.25),
+        transparent 50%
+      ),
+      repeating-linear-gradient(
+        115deg,
+        rgba(0, 0, 0, 0.5) 0px,
+        rgba(0, 0, 0, 0.5) 2px,
+        transparent 2px,
+        transparent 7px
+      ),
+      radial-gradient(#000 30%, transparent 31%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 5px 5px;
+  }
+
+  /* technical dashed crop marks */
+  .crop-marks {
+    position: relative;
+  }
+
+  /* underline scan for nav hover */
+  .nav-scan {
+    position: relative;
+  }
+  .nav-scan::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    width: 100%;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .nav-scan:hover::after,
+  .nav-scan[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  /* print-scan moving bar (modal transition) */
+  .scanbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 22%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(255, 75, 11, 0.35),
+      rgba(232, 223, 207, 0.85),
+      rgba(255, 75, 11, 0.35),
+      transparent
+    );
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .text-stroke-ink {
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: transparent;
+  }
+  .text-stroke-paper {
+    -webkit-text-stroke: 1px var(--paper);
+    color: transparent;
+  }
+  .paper-panel {
+    background-color: var(--paper);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .ink-panel {
+    background-color: var(--ink);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='pi'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pi)' opacity='0.25'/%3E%3C/svg%3E");
+  }
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* respect reduced motion: kill the heavy infinite loops */
+@media (prefers-reduced-motion: reduce) {
+  .grain-layer,
+  .animate-grain,
+  .animate-flicker,
+  .animate-lightleak,
+  .animate-scan,
+  .animate-drift,
+  .animate-wobble,
+  .animate-marquee {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

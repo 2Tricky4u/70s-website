@@ -1,0 +1,223 @@
+You are an expert frontend designer and developer. Build a fully interactive website inspired by the attached reference image: a gritty 1990s photo archive homepage with an underground techno / industrial flyer aesthetic.
+
+The goal is not to recreate the image as a flat screenshot. Convert the visual language into a dynamic, responsive, interactive website.
+
+STYLE DIRECTION:
+Create a website with the same atmosphere as the reference:
+
+* Gritty underground techno rave poster aesthetic
+* Industrial flyer / zine / archive interface
+* Distressed off-white paper texture
+* Heavy black panels and burnt orange accents
+* Halftone grain, scratches, worn print texture, imperfect ink, scanned-paper feel
+* Massive condensed all-caps typography
+* Bold editorial layout
+* Small technical markings, barcodes, coordinates, target symbols, microtype, frequency labels
+* Dark cinematic high-contrast urban energy
+* Retro 90s photo archive feeling
+* Analog film artifacts: light leaks, chromatic aberration, halation glow, dust, print misregistration
+
+WEBSITE CONCEPT:
+The website is a personal 90s-inspired photo archive. Each memory/photo should appear as its own poster card, like a mini underground event flyer. The site should feel playful to navigate, immersive, tactile, and archival.
+
+STRUCTURE:
+Build the site with these sections:
+
+1. TOP SYSTEM HEADER
+   A thin black technical header with:
+
+* Coordinates
+* “EST. 1990”
+* Archive ID
+* Barcode
+* Small circular target icons
+* Brand name: “NINETEEN NINETY PHOTO ARCHIVE”
+* Search button
+* Menu button
+
+2. MAIN NAVIGATION
+   Horizontal navigation with:
+
+* Home
+* Archive
+* Collections
+* Zines
+* About
+* Contact
+
+Use hover states with orange highlights, subtle distortion, underline scans, or flickering micro animations.
+
+3. HERO SECTION
+   A large hero section with:
+
+* Huge headline: “NINETEEN NINETY”
+* Subtitle: “A PERSONAL PHOTO ARCHIVE OF A DECADE THAT BUILT US.”
+* Small metadata text: “MEMORIES. MOMENTS. MAYHEM.”
+* Barcode and “FOUND MEMORIES”
+* Right-side cinematic collage area with crowd/stage/smoke/urban silhouettes or placeholder image treatment
+* A circular “90” archive stamp
+* “Scroll to explore” indicator
+
+The hero should not be static. Add subtle motion:
+
+* Slow drifting smoke/noise overlay
+* Flickering orange light leak
+* Slight parallax between text, image, and texture layers
+* Grain/noise overlay across the whole page
+
+4. FILTER BAR
+   Sticky or semi-sticky category filter bar:
+
+* All
+* Friends
+* Nightlife
+* Street
+* Skate
+* Family
+* Travel
+* Music
+* Cars
+* Culture
+
+Clicking a category should filter the poster grid dynamically.
+
+5. POSTER GRID / PHOTO ARCHIVE
+   Create a responsive grid of poster cards. Each card represents a memory/photo, for example:
+
+* Basement Sessions
+* Friday Nights
+* City Lights
+* Skate or Die
+* Family First
+* Cassette Culture
+* Road Trip
+* Block Party
+* Trainyard Graffiti
+* Beach Days
+* After Hours
+* First Car
+
+Each card must look like a small gritty poster:
+
+* Big condensed title
+* Year marker
+* Photo area or placeholder image area
+* Barcode
+* Small coordinates
+* Tiny archival text
+* Orange accent labels
+* Distressed border
+* Halftone and grain texture
+
+Cards should have playful hover interactions:
+
+* Slight 3D tilt
+* Orange light leak sweep
+* Subtle scale up
+* Barcode flicker
+* Microtext reveal
+* Cursor-reactive parallax if possible
+
+6. EXPANDED PHOTO / MODAL EXPERIENCE
+   When a user clicks a poster card, open an animated expanded view.
+
+The animation should match the website style:
+
+* The poster card enlarges from its grid position into a full-screen or large overlay
+* Use a “print scan” transition, like the poster is being photocopied or loaded from an archive machine
+* Add grain burst, orange light leak flash, and slight chromatic split during the transition
+* The background darkens with smoky texture
+* The expanded poster becomes larger and more detailed
+* Show metadata beside or below it:
+
+  * Title
+  * Year
+  * Category
+  * Location / coordinates
+  * Short memory description
+  * Archive ID
+  * Tags
+* Include close button styled as a technical UI element
+* Add previous / next navigation
+* Support keyboard navigation: Escape closes, left/right arrows move between posters
+
+7. COLLECTIONS SECTION
+   Below the grid, add a section for curated collections:
+
+* Nightlife
+* Street Summer
+* Analog Family
+* Cars & Roads
+* Music Rooms
+
+Each collection card should feel like a dark industrial archive folder or zine cover.
+
+8. ABOUT / MANIFESTO SECTION
+   A bold editorial text section explaining the archive:
+   “This is a living archive of fragments, noise, friends, streets, rooms, cars, music, and half-remembered nights.”
+
+Style it like a printed manifesto with oversized text, orange annotations, and marginal technical notes.
+
+9. FOOTER
+   Black industrial footer with:
+
+* “ALL PHOTOS © NINETEEN NINETY ARCHIVE”
+* “BUILT IN THE 90S. RUNNING TODAY.”
+* Now playing area with animated waveform
+* Join the archive call-to-action
+* Submit button
+
+INTERACTIVITY REQUIREMENTS:
+The website must feel alive and tactile. Add:
+
+* Smooth scrolling
+* Animated grain/noise overlay
+* Hover distortion effects
+* Poster card tilt effects
+* Dynamic category filtering
+* Expanded modal with animated transition
+* Keyboard controls for modal
+* Subtle parallax in hero
+* Cursor-following orange glow or scanline effect
+* Animated waveform in footer
+* Mobile responsive behavior
+
+TECHNICAL REQUIREMENTS:
+Implement as a modern frontend project. Prefer:
+
+* React with TypeScript
+* Tailwind CSS
+* Framer Motion for animations
+* CSS pseudo-elements for grain, scratches, scanlines, light leaks, and distressed overlays
+
+Do not use the reference image as a single background. Instead, recreate the design system as reusable components:
+
+* Header
+* Navigation
+* Hero
+* FilterBar
+* PosterGrid
+* PosterCard
+* ExpandedPosterModal
+* Collections
+* Manifesto
+* Footer
+
+Use mock data arrays for posters and collections so the site is easy to extend.
+
+VISUAL DETAILS TO IMPLEMENT:
+
+* Off-white paper background: #e8dfcf or similar
+* Black ink: #0b0b0a
+* Burnt orange: #ff4b0b or #f05a1a
+* Muted gray/sepia tones
+* Optional cold blue/violet light leak accents
+* Condensed bold typography, similar to Bebas Neue, Anton, Oswald, or a fallback condensed sans-serif
+* Monospace microtype for metadata
+* Distressed borders using CSS overlays
+* Repeating barcode-like decorative elements
+* SVG or CSS target/crosshair symbols
+* Subtle random rotation or imperfect alignment for poster cards, but keep layout usable
+
+IMPORTANT:
+The final result should feel like a real website inspired by the image, not a static poster. It should be navigable, animated, responsive, and component-based. Prioritize atmosphere, interaction, and layout fidelity.
