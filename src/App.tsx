@@ -6,6 +6,7 @@ import { CursorGlow } from "./components/CursorGlow";
 import { DistressDefs } from "./components/DistressDefs";
 import { FloatingMenu } from "./components/FloatingMenu";
 import { StickyFooterBar } from "./components/StickyFooterBar";
+import { MusicPlayerProvider } from "./components/MusicPlayer";
 import { SystemHeader } from "./components/SystemHeader";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
@@ -47,6 +48,7 @@ export default function App() {
   );
 
   return (
+    <MusicPlayerProvider>
     <div className="relative min-h-screen">
       <DistressDefs />
       <GrainOverlay />
@@ -87,5 +89,6 @@ export default function App() {
         onNext={() => step(1)}
       />
     </div>
+    </MusicPlayerProvider>
   );
 }

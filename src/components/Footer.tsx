@@ -3,7 +3,7 @@ import { Barcode } from "./Barcode";
 import { Crosshair } from "./Crosshair";
 import { WornLayer } from "./WornLayer";
 import { DistressedTitle } from "./DistressedTitle";
-import { Waveform } from "./Waveform";
+import { NowPlaying } from "./NowPlaying";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -76,16 +76,12 @@ export function Footer() {
           <Barcode seed="footer-brand" color="#e8dfcf" className="h-6 w-32 opacity-80" />
         </div>
 
-        {/* now playing + waveform */}
+        {/* now playing — shared music player */}
         <div className="space-y-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-paper/55">
-            ● NOW PLAYING
+            ● ARCHIVE RADIO
           </span>
-          <p className="font-condensed text-base uppercase tracking-[0.05em]">
-            UNTITLED BASEMENT MIX
-            <span className="block text-xs text-paper/50">DUBBED TAPE · 1992</span>
-          </p>
-          <Waveform />
+          <NowPlaying bars={32} waveClass="h-10 w-full" showMeta className="gap-4" />
         </div>
 
         {/* index */}

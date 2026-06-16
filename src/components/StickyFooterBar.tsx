@@ -2,7 +2,17 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { AimMark } from "./AimMark";
 import { Globe } from "./Globe";
-import { Waveform } from "./Waveform";
+import { NowPlaying } from "./NowPlaying";
+
+/** short, centered vertical separator (not full-height) */
+function Sep({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`h-8 w-px shrink-0 self-center bg-paper/30 ${className}`}
+      aria-hidden="true"
+    />
+  );
+}
 
 /**
  * Persistent footer bar pinned to the bottom of the viewport (a 1:1 of the
@@ -34,10 +44,12 @@ export function StickyFooterBar() {
         className="scanlines pointer-events-none absolute inset-0 opacity-30"
         aria-hidden="true"
       />
-      <div className="relative mx-auto flex max-w-[1600px] items-stretch">
-        {/* © / archive */}
-        <div className="flex items-center gap-3 px-3 py-2.5 sm:px-4">
-          <AimMark small className="hidden h-6 w-6 shrink-0 text-paper/70 sm:block" />
+      {/* three groups spread evenly (justify-between) so the sections feel airy.
+          The song player is the priority — © + join text collapse first. */}
+      <div className="relative mx-auto flex max-w-[1600px] items-center justify-between gap-5 px-4 py-2.5 sm:px-6 lg:gap-6 lg:px-10">
+        {/* © / archive — lowest priority, large screens only */}
+        <div className="hidden items-center gap-5 lg:flex">
+          <AimMark small className="h-6 w-6 shrink-0 text-paper/70" />
           <div className="font-mono text-[9px] uppercase leading-[1.5] tracking-[0.12em] text-paper/75">
             <span className="block">ALL PHOTOS © NINETEEN NINETY ARCHIVE</span>
             <span className="block text-paper/55">
@@ -46,27 +58,28 @@ export function StickyFooterBar() {
           </div>
         </div>
 
-        {/* now playing + waveform */}
-        <div className="hidden items-center gap-3 border-l border-paper/20 px-4 lg:flex">
-          <AimMark small className="h-6 w-6 shrink-0 text-paper/70" />
-          <div className="whitespace-nowrap font-mono text-[9px] uppercase leading-[1.5] tracking-[0.12em]">
-            <span className="block text-paper/55">NOW PLAYING</span>
-            <span className="block text-paper">808 STATE — PACIFIC 202</span>
-          </div>
-          <Waveform bars={24} className="h-7 w-24" />
+        {/* now playing — always visible (priority); aim + sep lead it on lg+ */}
+        <div className="flex min-w-0 items-center gap-4 lg:gap-5">
+          <AimMark small className="hidden h-6 w-6 shrink-0 text-paper/70 lg:block" />
+          <Sep className="hidden lg:block" />
+          <NowPlaying
+            bars={40}
+            waveClass="h-7 w-24 sm:w-32 md:w-40 lg:w-44 xl:w-56"
+            titleClass="hidden sm:block"
+            controlsClass="hidden md:flex"
+          />
         </div>
 
-        <div className="flex-1" />
-
-        {/* join / submit */}
-        <div className="flex items-center gap-3 border-l border-paper/20 px-3 sm:px-4">
-          <div className="hidden text-right font-mono text-[9px] uppercase leading-[1.5] tracking-[0.12em] sm:block">
+        {/* join / submit — SUBMIT always; text/marks fold away first */}
+        <div className="flex items-center gap-4 sm:gap-5">
+          <Sep className="hidden lg:block" />
+          <div className="hidden text-right font-mono text-[9px] uppercase leading-[1.5] tracking-[0.12em] lg:block">
             <span className="block text-orange">JOIN THE ARCHIVE</span>
             <span className="block text-paper/55">SUBMIT YOUR MEMORY</span>
           </div>
           <AimMark
             small
-            className="hidden h-6 w-6 shrink-0 text-paper/70 md:block"
+            className="hidden h-6 w-6 shrink-0 text-paper/70 xl:block"
           />
           <a
             href="#contact"
@@ -74,7 +87,7 @@ export function StickyFooterBar() {
           >
             Submit <span>›</span>
           </a>
-          <Globe className="hidden h-6 w-6 shrink-0 text-paper/70 md:block" />
+          <Globe className="hidden h-6 w-6 shrink-0 text-paper/70 xl:block" />
         </div>
       </div>
     </motion.aside>
