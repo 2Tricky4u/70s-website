@@ -233,29 +233,25 @@ body {
     filter: invert(1);
   }
 
-  /* -------- TITLE damage: SVG roughen + masked ink-flake + chroma -------- */
+  /* -------- TITLE damage: ink-flake mask (softened) + roughen + chroma --------
+     The letters themselves are masked by the ink-distress texture so the ink
+     looks flaked away in spots. A semi-opaque base mask layer (added with the
+     default `add` compositing) keeps the flakes as PARTIAL nibbles, not full
+     holes, so titles stay legible. Tiled (repeat) so it covers any width. */
   .title-distress {
     position: relative;
-    isolation: isolate;
-  }
-  /* paper-coloured flakes punched over the ink letters (ink that flaked off).
-     --distress-bg should match the local surface colour. */
-  .title-distress::after {
-    content: "";
-    position: absolute;
-    inset: -2%;
-    pointer-events: none;
-    background: var(--distress-bg, var(--paper));
-    -webkit-mask-image: var(--distress-tex, url("/textures/ink-distress-01.webp"));
-    mask-image: var(--distress-tex, url("/textures/ink-distress-01.webp"));
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: var(--distress-size, 680px) auto;
-    mask-size: var(--distress-size, 680px) auto;
-    -webkit-mask-position: var(--mask-x, 0px) var(--mask-y, 0px);
-    mask-position: var(--mask-x, 0px) var(--mask-y, 0px);
-    opacity: var(--distress-amt, 0.45);
-    mix-blend-mode: normal;
+    -webkit-mask-image:
+      var(--distress-tex, url("/textures/ink-distress-01.webp")),
+      linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62));
+    mask-image:
+      var(--distress-tex, url("/textures/ink-distress-01.webp")),
+      linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62));
+    -webkit-mask-repeat: repeat, no-repeat;
+    mask-repeat: repeat, no-repeat;
+    -webkit-mask-size: var(--distress-size, 260px) auto, 100% 100%;
+    mask-size: var(--distress-size, 260px) auto, 100% 100%;
+    -webkit-mask-position: var(--mask-x, 0px) var(--mask-y, 0px), 0 0;
+    mask-position: var(--mask-x, 0px) var(--mask-y, 0px), 0 0;
   }
   /* extra edge break-up for the big display titles */
   .title-rough {
