@@ -4,26 +4,8 @@ import { Barcode } from "./Barcode";
 export function SystemHeader() {
   return (
     <div className="ink-panel relative z-50 overflow-hidden text-paper">
-      {/* worn light-leak / lighter wear patch across the band */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0"
-        aria-hidden="true"
-        style={{
-          background:
-            "linear-gradient(105deg, transparent 40%, rgba(232,223,207,0.16) 58%, rgba(232,223,207,0.05) 70%, transparent 82%)",
-          mixBlendMode: "screen",
-        }}
-      />
-      {/* heavy scratches / dust over the band */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.5]"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='80'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.7' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='0.4'/%3E%3C/svg%3E\")",
-          mixBlendMode: "screen",
-        }}
-      />
+      {/* same subtle scanlines as the footer so the band blends into the stage */}
+      <div className="scanlines absolute inset-0 opacity-30" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex max-w-[1600px] items-stretch justify-between gap-3 px-3 py-2.5 sm:py-3">
         {/* ---------------- left cluster ---------------- */}

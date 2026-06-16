@@ -50,11 +50,11 @@ export default function App() {
       <GrainOverlay />
       <CursorGlow />
 
-      {/* full-width system band */}
+      {/* full-bleed system band (blends edge-to-edge with the dark stage) */}
       <SystemHeader />
 
-      {/* framed "white box" sitting on the dark stage — margin on left/right only */}
-      <div className="px-2 sm:px-3">
+      {/* framed "white box" — centred on the dark stage, margin left/right only */}
+      <div className="mx-auto max-w-[1600px] px-2 sm:px-3">
         <div className="site-frame">
           <header className="relative">
             <Navigation />
@@ -73,6 +73,7 @@ export default function App() {
         </div>
       </div>
 
+      {/* full-bleed footer */}
       <Footer />
 
       <ExpandedPosterModal

@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Crosshair } from "./Crosshair";
 
 const LINKS = ["Home", "Archive", "Collections", "Zines", "About", "Contact"];
 
@@ -8,20 +9,18 @@ export function Navigation() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="relative z-40 border-b-2 border-ink/80 bg-paper/40 backdrop-blur-[1px]">
-      <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 py-2.5">
+    <nav className="relative z-40 border-b border-ink/55 bg-paper/40 backdrop-blur-[1px]">
+      <div className="mx-auto flex max-w-[1600px] items-stretch justify-between">
         {/* desktop links */}
-        <ul className="hidden items-center gap-6 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] md:flex lg:gap-9">
+        <ul className="hidden items-stretch font-condensed text-[13px] font-medium uppercase tracking-[0.2em] md:flex">
           {LINKS.map((link, i) => (
             <Fragment key={link}>
-              <li>
+              <li className="flex">
                 <a
                   href={`#${link.toLowerCase()}`}
                   data-active={i === 0 ? "true" : "false"}
-                  className={`nav-scan group relative inline-block transition-colors duration-200 ${
-                    i === 0
-                      ? "text-orange"
-                      : "text-ink/80 hover:text-orange"
+                  className={`nav-scan group flex items-center px-4 py-2 transition-colors duration-200 lg:px-5 ${
+                    i === 0 ? "text-orange" : "text-ink/80 hover:text-orange"
                   }`}
                 >
                   <span className="inline-block transition-transform duration-150 group-hover:-translate-y-px group-hover:[text-shadow:1px_0_0_rgba(255,75,11,0.6),-1px_0_0_rgba(59,110,165,0.5)]">
@@ -29,64 +28,58 @@ export function Navigation() {
                   </span>
                 </a>
               </li>
-              {/* divider line right after HOME, like the reference */}
+              {/* full-height divider after HOME — same weight/colour as the rules */}
               {i === 0 && (
-                <li
-                  aria-hidden="true"
-                  className="h-5 w-px self-center bg-ink/35"
-                />
+                <li aria-hidden="true" className="w-px self-stretch bg-ink/55" />
               )}
             </Fragment>
           ))}
         </ul>
 
         {/* brand mark on mobile */}
-        <span className="font-display text-lg tracking-tight md:hidden">
+        <span className="flex items-center px-4 py-2 font-display text-lg tracking-tight md:hidden">
           NN<span className="text-orange">.</span>ARCHIVE
         </span>
 
-        {/* right meta + search/menu + hamburger */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-ink/45 lg:inline">
+        {/* right cluster */}
+        <div className="flex items-stretch">
+          <span className="hidden items-center px-4 font-mono text-[10px] uppercase tracking-[0.2em] text-ink/45 lg:flex">
             REC ● 1990—1999
           </span>
-          <button className="nav-scan hidden items-center gap-1.5 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] text-ink/80 transition hover:text-orange md:flex">
-            <span className="text-orange">✦</span> Search
+          <button className="nav-scan group hidden items-center gap-1.5 px-4 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] text-ink/80 transition hover:text-orange md:flex">
+            <Crosshair className="h-3.5 w-3.5 text-orange" strokeWidth={1.6} />
+            Search
           </button>
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="hidden items-center gap-2 border border-ink/70 px-3 py-1.5 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] text-ink transition hover:border-orange hover:text-orange md:flex"
-          >
-            Menu
-            <span className={`transition-transform ${open ? "rotate-180" : ""}`}>
-              ▾
-            </span>
-          </button>
+          {/* boxed MENU spanning the full nav height (bounded by the rules) */}
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
-            className="flex h-8 w-9 flex-col items-center justify-center gap-[5px] border border-ink/70 transition hover:border-orange md:hidden"
+            className="group flex items-center gap-2.5 self-stretch border-l border-ink/55 px-4 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] text-ink transition hover:bg-ink hover:text-paper lg:px-5"
           >
-            <span
-              className={`h-[2px] w-5 bg-ink transition ${
-                open ? "translate-y-[7px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`h-[2px] w-5 bg-ink transition ${
-                open ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`h-[2px] w-5 bg-ink transition ${
-                open ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
-            />
+            Menu
+            {/* three-line menu glyph */}
+            <span className="flex flex-col gap-[3px]" aria-hidden="true">
+              <span
+                className={`block h-[2px] w-4 bg-orange transition-transform duration-200 ${
+                  open ? "translate-y-[5px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-4 bg-current transition-opacity duration-200 ${
+                  open ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-4 bg-orange transition-transform duration-200 ${
+                  open ? "-translate-y-[5px] -rotate-45" : ""
+                }`}
+              />
+            </span>
           </button>
         </div>
       </div>
 
-      {/* mobile dropdown */}
+      {/* dropdown (mobile + MENU toggle) */}
       <AnimatePresence>
         {open && (
           <motion.ul
