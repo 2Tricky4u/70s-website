@@ -25,8 +25,11 @@ export function StickyFooterBar() {
   useEffect(() => {
     const footer = document.getElementById("contact");
     if (!footer) return;
+    // grow the root's bottom by ~a bar height so the bar slides away just
+    // BEFORE the footer reaches it (no overlap with the footer's now-playing)
     const io = new IntersectionObserver(([e]) => setAtFooter(e.isIntersecting), {
       threshold: 0,
+      rootMargin: "0px 0px 120px 0px",
     });
     io.observe(footer);
     return () => io.disconnect();
@@ -64,8 +67,7 @@ export function StickyFooterBar() {
           <Sep className="hidden lg:block" />
           <NowPlaying
             bars={40}
-            waveClass="h-7 w-24 sm:w-32 md:w-40 lg:w-44 xl:w-56"
-            titleClass="hidden sm:block"
+            waveClass="h-7 w-16 sm:w-28 md:w-40 lg:w-44 xl:w-56"
             controlsClass="hidden md:flex"
           />
         </div>
@@ -83,7 +85,7 @@ export function StickyFooterBar() {
           />
           <a
             href="#contact"
-            className="flex items-center gap-3 border border-orange px-3 py-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-orange transition hover:bg-orange hover:text-ink sm:px-4"
+            className="hidden items-center gap-3 border border-orange px-3 py-1.5 font-condensed text-xs font-semibold uppercase tracking-[0.25em] text-orange transition hover:bg-orange hover:text-ink sm:flex sm:px-4"
           >
             Submit <span>›</span>
           </a>
