@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Barcode } from "./Barcode";
 import { Crosshair } from "./Crosshair";
 import { WornLayer } from "./WornLayer";
 import { DistressedTitle } from "./DistressedTitle";
+import { Waveform } from "./Waveform";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -123,29 +123,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-/** animated audio waveform built from bars with staggered scaleY loops */
-function Waveform() {
-  const bars = Array.from({ length: 28 });
-  return (
-    <div className="flex h-10 items-end gap-[3px]">
-      {bars.map((_, i) => (
-        <motion.span
-          key={i}
-          className="w-[3px] flex-1 bg-orange"
-          style={{ transformOrigin: "bottom" }}
-          animate={{ scaleY: [0.2, 1, 0.45, 0.85, 0.3] }}
-          transition={{
-            duration: 1.1 + (i % 5) * 0.18,
-            repeat: Infinity,
-            repeatType: "mirror",
-            ease: "easeInOut",
-            delay: (i % 7) * 0.07,
-          }}
-        />
-      ))}
-    </div>
   );
 }
