@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const LINKS = ["Home", "Archive", "Collections", "Zines", "About", "Contact"];
@@ -13,21 +13,30 @@ export function Navigation() {
         {/* desktop links */}
         <ul className="hidden items-center gap-6 font-condensed text-[13px] font-medium uppercase tracking-[0.2em] md:flex lg:gap-9">
           {LINKS.map((link, i) => (
-            <li key={link}>
-              <a
-                href={`#${link.toLowerCase()}`}
-                data-active={i === 0 ? "true" : "false"}
-                className={`nav-scan group relative inline-block transition-colors duration-200 ${
-                  i === 0
-                    ? "text-orange"
-                    : "text-ink/80 hover:text-orange"
-                }`}
-              >
-                <span className="inline-block transition-transform duration-150 group-hover:-translate-y-px group-hover:[text-shadow:1px_0_0_rgba(255,75,11,0.6),-1px_0_0_rgba(59,110,165,0.5)]">
-                  {link}
-                </span>
-              </a>
-            </li>
+            <Fragment key={link}>
+              <li>
+                <a
+                  href={`#${link.toLowerCase()}`}
+                  data-active={i === 0 ? "true" : "false"}
+                  className={`nav-scan group relative inline-block transition-colors duration-200 ${
+                    i === 0
+                      ? "text-orange"
+                      : "text-ink/80 hover:text-orange"
+                  }`}
+                >
+                  <span className="inline-block transition-transform duration-150 group-hover:-translate-y-px group-hover:[text-shadow:1px_0_0_rgba(255,75,11,0.6),-1px_0_0_rgba(59,110,165,0.5)]">
+                    {link}
+                  </span>
+                </a>
+              </li>
+              {/* divider line right after HOME, like the reference */}
+              {i === 0 && (
+                <li
+                  aria-hidden="true"
+                  className="h-5 w-px self-center bg-ink/35"
+                />
+              )}
+            </Fragment>
           ))}
         </ul>
 

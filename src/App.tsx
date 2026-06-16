@@ -50,18 +50,28 @@ export default function App() {
       <GrainOverlay />
       <CursorGlow />
 
-      <header className="relative">
-        <SystemHeader />
-        <Navigation />
-      </header>
+      {/* full-width system band */}
+      <SystemHeader />
 
-      <main>
-        <Hero />
-        <FilterBar active={filter} onChange={setFilter} count={filtered.length} />
-        <PosterGrid posters={filtered} onOpen={open} />
-        <Collections />
-        <Manifesto />
-      </main>
+      {/* framed "white box" sitting on the dark stage — margin on left/right only */}
+      <div className="px-2 sm:px-3">
+        <div className="site-frame">
+          <header className="relative">
+            <Navigation />
+          </header>
+          <main>
+            <Hero />
+            <FilterBar
+              active={filter}
+              onChange={setFilter}
+              count={filtered.length}
+            />
+            <PosterGrid posters={filtered} onOpen={open} />
+            <Collections />
+            <Manifesto />
+          </main>
+        </div>
+      </div>
 
       <Footer />
 
