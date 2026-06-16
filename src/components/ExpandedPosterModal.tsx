@@ -38,6 +38,7 @@ export function ExpandedPosterModal({
     <AnimatePresence>
       {poster && (
         <motion.div
+          key="poster-modal"
           className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -68,9 +69,9 @@ export function ExpandedPosterModal({
           {/* print-scan flash bars + grain burst (keyed to poster id) */}
           <PrintScanBurst key={poster.id} />
 
-          {/* content */}
+          {/* content (NOT re-keyed on next — avoids remounting a layoutId
+              node mid-presence, which left the overlay stuck after close) */}
           <motion.div
-            key={poster.id}
             initial={{ y: 18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 18, opacity: 0 }}
