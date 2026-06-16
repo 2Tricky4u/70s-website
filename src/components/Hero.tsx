@@ -49,7 +49,7 @@ export function Hero() {
       {/* medium scratches/dust/folds over the hero */}
       <WornLayer seed="hero-sec" large amount={0.16} />
 
-      <div className="relative z-10 mx-auto grid max-w-[1600px] grid-cols-1 gap-6 px-4 pb-10 pt-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-4 lg:pb-16 lg:pt-14">
+      <div className="relative z-10 mx-auto grid max-w-[1600px] grid-cols-1 gap-6 px-4 pb-3 pt-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-4 lg:pb-4 lg:pt-14">
         {/* ---------- left: type ---------- */}
         <motion.div style={{ y: yText, opacity: fade }} className="flex flex-col">
           <div className="mb-3 flex items-center gap-2.5 font-mono text-[12px] font-semibold uppercase tracking-[0.3em] text-orange">
