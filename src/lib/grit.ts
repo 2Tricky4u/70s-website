@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { asset } from "./asset";
 
 /** deterministic 0..1 PRNG from a string seed (same as Barcode's) */
 export function seeded(seed: string) {
@@ -39,6 +40,6 @@ export function distressVars(seed: string): CSSProperties {
   return {
     "--mask-x": off(),
     "--mask-y": off(),
-    "--distress-tex": `url("/textures/ink-distress-0${r() > 0.5 ? 2 : 1}.webp")`,
+    "--distress-tex": `url("${asset(`textures/ink-distress-0${r() > 0.5 ? 2 : 1}.webp`)}")`,
   } as CSSProperties;
 }

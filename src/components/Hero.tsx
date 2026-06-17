@@ -5,6 +5,7 @@ import { Barcode } from "./Barcode";
 import { AimMark } from "./AimMark";
 import { WornLayer } from "./WornLayer";
 import { distressVars } from "../lib/grit";
+import { asset } from "../lib/asset";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -165,7 +166,7 @@ function NinetyStamp() {
     <div className="relative grid h-28 w-28 place-items-center sm:h-36 sm:w-36">
       {/* grunge globe "'90" emblem */}
       <img
-        src="/logo.png"
+        src={asset("logo.png")}
         alt="Nineteen Ninety archive stamp"
         className="absolute inset-[16%] h-[68%] w-[68%] animate-wobble object-contain"
       />

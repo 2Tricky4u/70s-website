@@ -9,7 +9,7 @@
   font-weight: 600;
   font-display: swap;
   src: local("IBM Plex Mono SemiBold"),
-    url("/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
+    url("/70s-website/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Roboto Mono";
@@ -17,7 +17,7 @@
   font-weight: 600;
   font-display: swap;
   src: local("Roboto Mono SemiBold"),
-    url("/fonts/RobotoMono-SemiBold.ttf") format("truetype");
+    url("/70s-website/fonts/RobotoMono-SemiBold.ttf") format("truetype");
 }
 
 /* ============================================================
@@ -60,7 +60,7 @@ body {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E"),
     linear-gradient(rgba(11, 11, 10, 0.7), rgba(11, 11, 10, 0.7)),
-    url("/textures/paper-dark-01.webp");
+    url("/70s-website/textures/paper-dark-01.webp");
   background-size: 160px 160px, cover, cover;
   background-repeat: repeat, no-repeat, no-repeat;
   background-position: 0 0, center, center;
@@ -200,8 +200,8 @@ body {
     pointer-events: none;
     z-index: 1;
     background-image:
-      url("/textures/scratches-01.webp"),
-      url("/textures/dust-01.webp");
+      url("/70s-website/textures/scratches-01.webp"),
+      url("/70s-website/textures/dust-01.webp");
     background-repeat: no-repeat, no-repeat;
     background-size:
       var(--scr-size, 1000px) auto,
@@ -216,9 +216,9 @@ body {
   /* larger sections — fine scratches + soft folds + a faint stain blotch */
   .worn-overlay-lg {
     background-image:
-      url("/textures/scratches-01.webp"),
-      url("/textures/folds-01.webp"),
-      url("/textures/stain-01.webp");
+      url("/70s-website/textures/scratches-01.webp"),
+      url("/70s-website/textures/folds-01.webp"),
+      url("/70s-website/textures/stain-01.webp");
     background-size:
       var(--scr-size, 1500px) auto,
       var(--fold-size, 1800px) auto,
@@ -244,10 +244,10 @@ body {
   .title-distress {
     position: relative;
     -webkit-mask-image:
-      var(--distress-tex, url("/textures/ink-distress-01.webp")),
+      var(--distress-tex, url("/70s-website/textures/ink-distress-01.webp")),
       linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62));
     mask-image:
-      var(--distress-tex, url("/textures/ink-distress-01.webp")),
+      var(--distress-tex, url("/70s-website/textures/ink-distress-01.webp")),
       linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62));
     -webkit-mask-repeat: repeat, no-repeat;
     mask-repeat: repeat, no-repeat;
@@ -437,7 +437,7 @@ body {
     background-image:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/%3E%3C/svg%3E"),
       linear-gradient(rgba(232, 223, 207, 0.7), rgba(232, 223, 207, 0.7)),
-      url("/textures/paper-light-01.webp");
+      url("/70s-website/textures/paper-light-01.webp");
     background-size: 160px 160px, cover, cover;
     background-repeat: repeat, no-repeat, no-repeat;
     background-position: 0 0, center, var(--paper-pos, center);
@@ -446,7 +446,7 @@ body {
     background-image:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='0.35'/%3E%3C/svg%3E"),
       linear-gradient(rgba(232, 223, 207, 0.7), rgba(232, 223, 207, 0.7)),
-      url("/textures/paper-light-02.webp");
+      url("/70s-website/textures/paper-light-02.webp");
     background-position: 0 0, center, left bottom;
   }
   /* original ink + noise at 0.7, over the scanned dark paper (~30%) */
@@ -455,7 +455,7 @@ body {
     background-image:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='pi'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pi)' opacity='0.25'/%3E%3C/svg%3E"),
       linear-gradient(rgba(11, 11, 10, 0.7), rgba(11, 11, 10, 0.7)),
-      url("/textures/paper-dark-01.webp");
+      url("/70s-website/textures/paper-dark-01.webp");
     background-size: 160px 160px, cover, cover;
     background-repeat: repeat, no-repeat, no-repeat;
     background-position: 0 0, center, center;
