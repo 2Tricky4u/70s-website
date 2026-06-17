@@ -1,5 +1,7 @@
 import type { Category } from "../types";
 import { CATEGORIES } from "../data/posters";
+import { ArchiveControls, type ViewMode } from "./ArchiveControls";
+import type { SortKey } from "../lib/sortPosters";
 
 export type Filter = "All" | Category;
 
@@ -7,11 +9,23 @@ interface FilterBarProps {
   active: Filter;
   onChange: (f: Filter) => void;
   count: number;
+  sort: SortKey;
+  onSortChange: (s: SortKey) => void;
+  view: ViewMode;
+  onViewChange: (v: ViewMode) => void;
 }
 
 const FILTERS: Filter[] = ["All", ...CATEGORIES];
 
-export function FilterBar({ active, onChange, count }: FilterBarProps) {
+export function FilterBar({
+  active,
+  onChange,
+  count,
+  sort,
+  onSortChange,
+  view,
+  onViewChange,
+}: FilterBarProps) {
   return (
     <div
       id="archive"
@@ -39,17 +53,15 @@ export function FilterBar({ active, onChange, count }: FilterBarProps) {
         </div>
 
         {/* right controls */}
-        <div className="hidden items-center gap-4 pl-2 font-mono text-[10px] uppercase tracking-[0.2em] text-paper/70 sm:flex">
-          <span className="text-orange">{count} FILES</span>
-          <span className="hidden md:inline">SORT: NEWEST ▾</span>
-          <div className="hidden items-center gap-1 lg:flex">
-            <span className="grid h-5 w-5 place-items-center border border-orange bg-orange/20 text-orange">
-              ▦
-            </span>
-            <span className="grid h-5 w-5 place-items-center border border-paper/30">
-              ▤
-            </span>
-          </div>
+        <div className="hidden shrink-0 pl-2 sm:block">
+          <ArchiveControls
+            count={count}
+            sort={sort}
+            onSortChange={onSortChange}
+            view={view}
+            onViewChange={onViewChange}
+            tone="dark"
+          />
         </div>
       </div>
     </div>

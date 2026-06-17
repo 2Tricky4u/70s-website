@@ -11,6 +11,8 @@ import { SystemHeader } from "./components/SystemHeader";
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { FilterBar, type Filter } from "./components/FilterBar";
+import { type ViewMode } from "./components/ArchiveControls";
+import { sortPosters, type SortKey } from "./lib/sortPosters";
 import { PosterGrid } from "./components/PosterGrid";
 import { ExpandedPosterModal } from "./components/ExpandedPosterModal";
 import { Collections } from "./components/Collections";
@@ -19,6 +21,8 @@ import { Footer } from "./components/Footer";
 
 export default function App() {
   const [filter, setFilter] = useState<Filter>("All");
+  const [sort, setSort] = useState<SortKey>("newest");
+  const [view, setView] = useState<ViewMode>("grid");
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const filtered = useMemo(
@@ -28,6 +32,7 @@ export default function App() {
         : POSTERS.filter((p) => p.category === filter),
     [filter]
   );
+  const visible = useMemo(() => sortPosters(filtered, sort), [filtered, sort]);
 
   // the modal navigates within the *full* archive so prev/next never dead-ends
   const open = useCallback((poster: Poster) => setActiveId(poster.id), []);
@@ -70,9 +75,13 @@ export default function App() {
             <FilterBar
               active={filter}
               onChange={setFilter}
-              count={filtered.length}
+              count={visible.length}
+              sort={sort}
+              onSortChange={setSort}
+              view={view}
+              onViewChange={setView}
             />
-            <PosterGrid posters={filtered} onOpen={open} />
+            <PosterGrid posters={visible} onOpen={open} view={view} />
             <Collections />
             <Manifesto />
           </main>
