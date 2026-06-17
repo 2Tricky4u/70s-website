@@ -52,3 +52,63 @@ export interface Collection {
   theme: CollectionTheme;
   photos: CollectionPhoto[];
 }
+
+export interface ZineTheme {
+  /** space-separated RGB channels for --accent-rgb */
+  accentRgb: string;
+  /** duotone hue-rotate for --duo-hue */
+  hue: string;
+  /** short mood label, e.g. "CINEMATIC · ORANGE HEADLIGHTS" */
+  mood: string;
+}
+
+export type ZinePageKind =
+  | "cover"
+  | "contact"
+  | "full"
+  | "collage"
+  | "manifesto"
+  | "map"
+  | "closing";
+
+/** One page in a zine. Fields are optional; each `kind` uses what it needs. */
+export interface ZinePage {
+  kind: ZinePageKind;
+  /** resolved image URLs the layout draws (count varies by kind) */
+  images?: string[];
+  title?: string;
+  /** distressed caption shown over/under a photo */
+  caption?: string;
+  /** handwritten-style note lines */
+  notes?: string[];
+  /** big manifesto / closing lines */
+  lines?: string[];
+  /** map page place labels */
+  labels?: string[];
+  coords?: string;
+}
+
+export interface Zine {
+  id: string;
+  /** zero-padded issue number string, e.g. "001" */
+  issueNo: string;
+  title: string;
+  /** e.g. "1990—1993" */
+  years: string;
+  location: string;
+  coords: string;
+  /** e.g. "XEROX / COLLAGE" */
+  format: string;
+  /** e.g. "5.5 x 8.5 in" */
+  size: string;
+  edition: string;
+  archiveId: string;
+  photoCount: number;
+  noteCount: number;
+  blurb: string;
+  theme: ZineTheme;
+  cover: string;
+  /** marks a placeholder rack card that doesn't open */
+  status?: "coming-soon";
+  pages: ZinePage[];
+}

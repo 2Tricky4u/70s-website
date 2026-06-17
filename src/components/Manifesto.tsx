@@ -18,7 +18,7 @@ export function Manifesto() {
 
       <div className="relative z-[2] mx-auto max-w-[1300px] px-4 py-14 sm:py-20">
         <div className="mb-6 flex items-center gap-4 font-mono text-[11px] uppercase tracking-[0.3em] text-ink/60">
-          <span className="text-orange">SECTION 03</span>
+          <span className="text-orange">SECTION 04</span>
           <span className="h-px flex-1 bg-ink/30" />
           <span>THE ARCHIVE / WHY</span>
         </div>

@@ -9,7 +9,7 @@
  * (Dashboard → "Cloud name"). Until then, full-URL entries still work, so the
  * site keeps rendering with its placeholder photos.
  */
-export const CLOUDINARY_CLOUD = "YOUR_CLOUD_NAME";
+export const CLOUDINARY_CLOUD = "dsoqloftm";
 
 // auto format (WebP/AVIF), auto quality, cap longest side at 1600px
 const TRANSFORMS = "f_auto,q_auto,c_limit,w_1600";

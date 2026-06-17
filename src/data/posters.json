@@ -166,5 +166,19 @@
     "archiveId": "NN-012-94",
     "tags": ["rust", "tape-deck", "freedom", "oil"],
     "accent": "RUNS OK"
-  }
+  },
+  {
+  "id": "xavier-enters-the-room",
+  "title": "The Room\nBecomes Evidence",
+  "subtitle": "OCTOBER 26, 1998. XAVIER ENTERS THE ROOM.",
+  "year": 1998,
+  "category": "Nightlife",
+  "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781693270/01_txqr5y.png",
+  "location": "Lausanne, allegedly / wood-panel basement",
+  "coords": "46.5197° N · 6.6323° E",
+  "description": "Xavier entered the room with the confidence of a man who had misunderstood both the dress code and the decade. Within minutes, witnesses reported smoke, decorative stars, and the strong impression that paperwork would follow.",
+  "archiveId": "SC-026-98",
+  "tags": ["fake-archive", "basement-disco", "swiss-chaos", "1998", "evidence"],
+  "accent": "AUTHENTICITY DOUBTFUL"
+}
 ]

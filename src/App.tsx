@@ -16,6 +16,7 @@ import { sortPosters, type SortKey } from "./lib/sortPosters";
 import { PosterGrid } from "./components/PosterGrid";
 import { ExpandedPosterModal } from "./components/ExpandedPosterModal";
 import { Collections } from "./components/Collections";
+import { Zines } from "./components/Zines";
 import { Manifesto } from "./components/Manifesto";
 import { Footer } from "./components/Footer";
 
@@ -83,6 +84,7 @@ export default function App() {
             />
             <PosterGrid posters={visible} onOpen={open} view={view} />
             <Collections />
+            <Zines />
             <Manifesto />
           </main>
         </div>
