@@ -1,11 +1,16 @@
-import { motion } from "framer-motion";
+import { useState, type CSSProperties } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { COLLECTIONS } from "../data/collections";
 import { ArchiveImage } from "./ArchiveImage";
 import { Crosshair } from "./Crosshair";
 import { WornLayer } from "./WornLayer";
 import { DistressedTitle } from "./DistressedTitle";
+import { CollectionBrowser } from "./CollectionBrowser";
 
 export function Collections() {
+  const [openId, setOpenId] = useState<string | null>(null);
+  const openCollection = COLLECTIONS.find((c) => c.id === openId) ?? null;
+
   return (
     <section
       id="collections"
@@ -39,12 +44,14 @@ export function Collections() {
           {COLLECTIONS.map((c, i) => (
             <motion.article
               key={c.id}
+              onClick={() => setOpenId(c.id)}
+              style={{ "--accent-rgb": c.theme.accentRgb } as CSSProperties}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
               whileHover={{ y: -6 }}
-              className={`group relative overflow-hidden border border-paper/25 bg-ink-soft ${
+              className={`group relative cursor-pointer overflow-hidden border border-paper/25 bg-ink-soft transition-colors hover:border-orange ${
                 i === 0 ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >
@@ -62,6 +69,10 @@ export function Collections() {
                 <span className="absolute right-3 top-3 font-display text-3xl leading-none text-paper/90">
                   {String(c.count).padStart(2, "0")}
                 </span>
+                {/* theme / era tag previews the collection's accent */}
+                <span className="absolute bottom-3 left-3 border border-orange/70 bg-ink/60 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-orange backdrop-blur-[1px]">
+                  {c.theme.era}
+                </span>
               </div>
 
               <div className="flex items-start justify-between gap-3 p-4">
@@ -77,6 +88,9 @@ export function Collections() {
                   <p className="mt-1.5 max-w-xs font-condensed text-sm leading-snug text-paper/65">
                     {c.blurb}
                   </p>
+                  <span className="mt-2 inline-block font-mono text-[10px] uppercase tracking-[0.25em] text-orange opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    OPEN ARCHIVE ↗
+                  </span>
                 </div>
                 <Crosshair className="mt-1 h-5 w-5 shrink-0 text-paper/40 transition-colors group-hover:text-orange" />
               </div>
@@ -87,6 +101,16 @@ export function Collections() {
           ))}
         </div>
       </div>
+
+      {/* full-screen themed browser for the opened collection */}
+      <AnimatePresence>
+        {openCollection && (
+          <CollectionBrowser
+            collection={openCollection}
+            onClose={() => setOpenId(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

@@ -15,7 +15,8 @@ export default {
           panel: "#121110",
         },
         orange: {
-          DEFAULT: "#ff4b0b",
+          // accent is CSS-variable-driven so a scope can re-theme it
+          DEFAULT: "rgb(var(--accent-rgb) / <alpha-value>)",
           soft: "#f05a1a",
           deep: "#c23a08",
         },

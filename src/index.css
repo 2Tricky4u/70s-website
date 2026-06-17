@@ -28,9 +28,12 @@
   --paper: #e8dfcf;
   --paper-dark: #ddd2bd;
   --ink: #0b0b0a;
-  --orange: #ff4b0b;
+  /* accent is variable-driven so a scope (e.g. a themed collection) can recolor */
+  --accent-rgb: 255 75 11;
+  --orange: rgb(var(--accent-rgb));
   --orange-soft: #f05a1a;
   --sepia: #7c6f5a;
+  --duo-hue: -18deg;
   --grain-opacity: 0.09;
 }
 
@@ -170,7 +173,7 @@ body {
     background:
       radial-gradient(
         circle at 78% 18%,
-        rgba(255, 75, 11, 0.55),
+        rgb(var(--accent-rgb) / 0.55),
         transparent 42%
       ),
       radial-gradient(
@@ -261,11 +264,11 @@ body {
   /* -------- duotone photo treatment (orange + ink) -------- */
   .duotone {
     filter: grayscale(1) contrast(1.25) brightness(0.92) sepia(0.55)
-      hue-rotate(-18deg) saturate(2.2);
+      hue-rotate(var(--duo-hue, -18deg)) saturate(2.2);
   }
   .duotone-deep {
     filter: grayscale(1) contrast(1.45) brightness(0.7) sepia(0.7)
-      hue-rotate(-20deg) saturate(2.6);
+      hue-rotate(var(--duo-hue, -18deg)) saturate(2.6);
   }
 
   /* photo wrapper that multiplies an ink tint over the image */

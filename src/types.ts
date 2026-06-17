@@ -26,6 +26,22 @@ export interface Poster {
   accent?: string;
 }
 
+export interface CollectionTheme {
+  /** space-separated RGB channels for --accent-rgb, e.g. "120 90 205" */
+  accentRgb: string;
+  /** duotone hue-rotate for --duo-hue, e.g. "180deg" */
+  hue: string;
+  /** small era / mood label shown in the browser + card */
+  era: string;
+}
+
+export interface CollectionPhoto {
+  id: string;
+  title: string;
+  meta: string;
+  image: string;
+}
+
 export interface Collection {
   id: string;
   title: string;
@@ -33,4 +49,6 @@ export interface Collection {
   blurb: string;
   image: string;
   coords: string;
+  theme: CollectionTheme;
+  photos: CollectionPhoto[];
 }
