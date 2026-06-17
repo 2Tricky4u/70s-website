@@ -69,7 +69,8 @@ export type ZinePageKind =
   | "collage"
   | "manifesto"
   | "map"
-  | "closing";
+  | "closing"
+  | "story";
 
 /** One page in a zine. Fields are optional; each `kind` uses what it needs. */
 export interface ZinePage {
@@ -108,6 +109,8 @@ export interface Zine {
   blurb: string;
   theme: ZineTheme;
   cover: string;
+  /** optional ambient track looped while this issue's reader is open */
+  sound?: string;
   /** marks a placeholder rack card that doesn't open */
   status?: "coming-soon";
   pages: ZinePage[];

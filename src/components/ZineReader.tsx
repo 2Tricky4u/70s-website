@@ -12,6 +12,7 @@ import { ExpandedPosterModal } from "./ExpandedPosterModal";
 import { Barcode } from "./Barcode";
 import { AimMark } from "./AimMark";
 import { Crosshair } from "./Crosshair";
+import { useMusicPlayer } from "./MusicPlayer";
 
 interface ZineReaderProps {
   zine: Zine;
@@ -29,6 +30,26 @@ export function ZineReader({ zine, onClose }: ZineReaderProps) {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
   const [zoom, setZoom] = useState<{ images: string[]; index: number } | null>(null);
+
+  // ambient per-issue sound: loop while open; pause the footer player to avoid
+  // overlap and resume it on close if it had been playing
+  const music = useMusicPlayer();
+  useEffect(() => {
+    if (!zine.sound) return;
+    const wasPlaying = music.playing;
+    if (wasPlaying) music.toggle();
+    const audio = new Audio(zine.sound);
+    audio.loop = true;
+    audio.volume = 0.7;
+    void audio.play().catch(() => {});
+    return () => {
+      audio.pause();
+      audio.src = "";
+      if (wasPlaying) music.toggle();
+    };
+    // run once per reader open; music identity intentionally excluded
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [zine.sound]);
 
   const goTo = useCallback(
     (next: number, d: number) => {

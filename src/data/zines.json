@@ -102,28 +102,109 @@
     ]
   },
   {
-    "id": "cars-dust-sunset",
+    "id": "paddock-incident",
     "issueNo": "005",
-    "title": "Cars, Dust\n& Sunset",
-    "years": "1992—1997",
-    "location": "SOMEWHERE WEST",
-    "coords": "36.1699° N · 115.1398° W",
-    "format": "XEROX / COLLAGE",
+    "title": "The Wheel\nIncident",
+    "years": "1978",
+    "location": "MONACO / PADDOCK",
+    "coords": "43.7384° N · 7.4246° E",
+    "format": "XEROX / INCIDENT REPORT",
     "size": "5.5 x 8.5 IN",
-    "edition": "RUN OF 50",
+    "edition": "RUN OF 1 (CONFISCATED)",
     "archiveId": "ZINE-005",
-    "photoCount": 13,
-    "noteCount": 4,
-    "blurb": "Rust, tape decks and horizons that never got any closer. Dusk, dust and the long road home.",
-    "theme": { "accentRgb": "240 120 50", "hue": "20deg", "mood": "DUSK · DUST · HORIZON" },
-    "cover": "https://picsum.photos/seed/zine-cars-cover/900/1150",
+    "photoCount": 15,
+    "noteCount": 8,
+    "blurb": "Monaco, 1978. A borrowed wrench, a front-left wheel, and a small fire. The car never reached the track. Technically, neither did Xavier.",
+    "theme": { "accentRgb": "214 48 40", "hue": "330deg", "mood": "MONACO · 1978 · INCIDENT" },
+    "cover": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701036/garden-design-AI_Generated-1388328e-1e6e-4a1f-9077-c66c444d9b0a_cvztt6.png",
+    "sound": "https://res.cloudinary.com/dsoqloftm/video/upload/v1781702407/F1_80_s_turbo_era_Pure_Sound_HD_fzfimg.mp3",
     "pages": [
-      { "kind": "cover", "title": "Cars, Dust\n& Sunset", "images": ["https://picsum.photos/seed/zine-cars-1/900/1150"], "caption": "ISSUE 005 / 1992—1997" },
-      { "kind": "full", "images": ["https://picsum.photos/seed/zine-cars-2/1400/1000"], "caption": "THE HORIZON KEPT LYING", "notes": ["A FULL TANK. A DEAD RADIO."] },
-      { "kind": "contact", "images": ["https://picsum.photos/seed/zine-cars-c1/500/620","https://picsum.photos/seed/zine-cars-c2/500/620","https://picsum.photos/seed/zine-cars-c3/500/620","https://picsum.photos/seed/zine-cars-c4/500/620","https://picsum.photos/seed/zine-cars-c5/500/620","https://picsum.photos/seed/zine-cars-c6/500/620"], "title": "Contact / The Route" },
-      { "kind": "collage", "images": ["https://picsum.photos/seed/zine-cars-co1/700/900","https://picsum.photos/seed/zine-cars-co2/700/520","https://picsum.photos/seed/zine-cars-co3/600/760"], "title": "Rust & Tape Decks", "labels": ["300 DOLLARS","RUNS OK","PINE TREE"] },
-      { "kind": "map", "title": "Nowhere In Particular", "coords": "36.1699° N · 115.1398° W", "labels": ["ROUTE 66","SALT FLATS","LAST GAS","DUSK"] },
-      { "kind": "closing", "title": "End of Issue", "lines": ["FILED UNDER: MOTOR OIL","SCANNED FROM ORIGINAL. NOT PERFECT."] }
+      {
+        "kind": "cover",
+        "title": "The Wheel\nIncident",
+        "caption": "ISSUE 005 / MONACO · 1978",
+        "images": ["https://res.cloudinary.com/dsoqloftm/image/upload/v1781701036/garden-design-AI_Generated-1388328e-1e6e-4a1f-9077-c66c444d9b0a_cvztt6.png"]
+      },
+      {
+        "kind": "story",
+        "title": "Monaco, 1978",
+        "lines": [
+          "Xavier briefly works as a Formula 1 mechanic.",
+          "The car leaves without a wheel."
+        ],
+        "images": ["https://res.cloudinary.com/dsoqloftm/image/upload/v1781701037/garden-design-AI_Generated-7a9d71a7-b95d-4e6b-ad75-e25030f21e8e_nszrbo.png"]
+      },
+      {
+        "kind": "story",
+        "title": "Arrival",
+        "lines": [
+          "I arrived in the paddock with greasy overalls, borrowed authority, and the confidence of a man who had once seen a tire from a reasonable distance."
+        ],
+        "images": [
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701050/garden-design-AI_Generated-048764aa-b89b-4e6c-88fe-37a436be3ec9_c3xldv.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701052/ai-generated-1781698961608_v5ofkt.png"
+        ]
+      },
+      {
+        "kind": "contact",
+        "title": "Before / No Problem Yet",
+        "images": [
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701036/garden-design-AI_Generated-1388328e-1e6e-4a1f-9077-c66c444d9b0a_cvztt6.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701037/garden-design-AI_Generated-7a9d71a7-b95d-4e6b-ad75-e25030f21e8e_nszrbo.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701050/garden-design-AI_Generated-048764aa-b89b-4e6c-88fe-37a436be3ec9_c3xldv.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701052/ai-generated-1781698961608_v5ofkt.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781702037/ai-generated-1781701393091_tcbfkl.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781702084/ai-generated-1781701449476_sx4fqe.png"
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The Task",
+        "lines": [
+          "The team asked me to change the front-left wheel.",
+          "I interpreted this less as a mechanical task and more as a personal dialogue between man, machine, and panic.",
+          "For several seconds, everything looked professional."
+        ],
+        "images": [
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701038/garden-design-AI_Generated-dc1749d9-35dc-4381-8080-fea4ad9f25ec_b1syg4.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701039/garden-design-AI_Generated-30269475-23bc-4e53-9bac-058ed41b1e11_dy3ita.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701039/garden-design-AI_Generated-38f210e2-d89e-434c-b086-32eca434d1c0_dgeahy.png"
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "Then",
+        "lines": [
+          "Then the car moved.",
+          "Then the wheel moved separately."
+        ],
+        "images": [
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701053/ai-generated-1781699845834_b0gi9m.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701048/garden-design-AI_Generated-18fd0b47-5c73-4d80-8f31-23ab251ed49c_janbj0.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701041/garden-design-AI_Generated-3b59bae9-4164-4e85-8c44-ba236fa20cfa_d4aa8u.png"
+        ]
+      },
+      {
+        "kind": "story",
+        "title": "The Small Fire",
+        "lines": [
+          "By the time the small fire started, officials had already begun using phrases like “unusual procedure,” “preventable event,” and “who gave him a wrench.”"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701049/garden-design-AI_Generated-2ebddbeb-e11b-47a3-9a87-e20961dc2841_do1qnc.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701041/garden-design-AI_Generated-beed0b23-76bd-4ed4-a917-f169d0e99c61_jrapoj.png",
+          "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701049/ai-generated-1781700331875_dvj0sk.png"
+        ]
+      },
+      {
+        "kind": "closing",
+        "title": "End of Issue",
+        "lines": [
+          "The car never reached the track.",
+          "Technically, neither did I.",
+          "MONACO 1978 · INCIDENT FILED"
+        ]
+      }
     ]
   },
   {

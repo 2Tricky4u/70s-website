@@ -81,6 +81,63 @@ export function ZinePageView({ zine, page, pageIndex, onZoom }: ZinePageViewProp
           </div>
         );
 
+      case "story":
+        return (
+          <div className="grid h-full grid-cols-1 md:grid-cols-2">
+            {/* narrative column */}
+            <div className="flex flex-col justify-center gap-5 p-6 sm:p-10">
+              <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.25em] text-ink/55">
+                <span className="text-orange">FIELD REPORT</span>
+                <span className="h-px flex-1 bg-ink/25" />
+                <span>{zine.archiveId}</span>
+              </div>
+              {page.title && (
+                <DistressedTitle
+                  as="h3"
+                  seed={`${seed}-s`}
+                  className="font-display text-4xl uppercase leading-[0.85] tracking-tightest text-ink sm:text-5xl"
+                >
+                  {page.title}
+                </DistressedTitle>
+              )}
+              <div className="space-y-3 font-condensed text-lg leading-snug text-ink/85 sm:text-xl">
+                {page.lines?.map((l, i) => (
+                  <p key={i}>{l}</p>
+                ))}
+              </div>
+              <Barcode seed={`${seed}-sb`} className="h-6 w-32" />
+            </div>
+            {/* image column */}
+            <div
+              className={`grid gap-2 border-t-2 border-ink p-2 md:border-l-2 md:border-t-0 ${
+                imgs.length > 1 ? "grid-cols-2 content-center" : "grid-cols-1"
+              }`}
+            >
+              {imgs.map((src, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => onZoom(imgs, i)}
+                  className={`group relative block overflow-hidden border border-ink/70 ${
+                    imgs.length === 3 && i === 0 ? "col-span-2" : ""
+                  }`}
+                >
+                  <ArchiveImage
+                    src={src}
+                    alt={page.title ?? `frame ${i + 1}`}
+                    className={
+                      imgs.length === 1
+                        ? "h-full min-h-[42vh] w-full"
+                        : "aspect-[4/3] w-full"
+                    }
+                  />
+                  <ZoomHint />
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+
       case "full":
         return (
           <div className="relative h-full min-h-[50vh]">
