@@ -87,9 +87,9 @@
     "id": "road-trip",
     "title": "Road\nTrip",
     "subtitle": "NO MAP",
-    "year": 1995,
+    "year": 1992,
     "category": "Travel",
-    "image": "https://picsum.photos/seed/nn-road-desert/900/1150",
+    "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781693270/03_hkzgzw.png",
     "location": "ROUTE / SOMEWHERE WEST",
     "coords": "36.1699° N · 115.1398° W",
     "description": "A full tank, a dead radio, and a horizon that kept lying about how close it was. We slept in the car and called it freedom.",
@@ -101,9 +101,9 @@
     "id": "block-party",
     "title": "Block\nParty",
     "subtitle": "HOT ASPHALT",
-    "year": 1997,
+    "year": 1993,
     "category": "Friends",
-    "image": "https://picsum.photos/seed/nn-block-street/900/1150",
+    "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781693270/02_bbjjh6.png",
     "location": "OUR STREET / HYDRANT OPEN",
     "coords": "40.6782° N · 73.9442° W",
     "description": "Speakers in a window, a hydrant cracked open, and every kid on the block convinced they invented summer.",
@@ -125,48 +125,21 @@
     "tags": ["spray", "rails", "lookout", "burner"],
     "accent": "BUFFED"
   },
-  {
-    "id": "beach-days",
-    "title": "Beach\nDays",
-    "subtitle": "SALT & GRAIN",
-    "year": 1998,
-    "category": "Travel",
-    "image": "https://picsum.photos/seed/nn-beach-surf/900/1150",
-    "location": "SOUTH SHORE / LOW TIDE",
-    "coords": "21.3069° N · 157.8583° W",
-    "description": "Disposable camera crusted with salt, a cooler full of warm soda, and a sunburn we'd feel for a week.",
-    "archiveId": "NN-010-98",
-    "tags": ["salt", "tide", "disposable", "sunburn"],
-    "accent": "SANDY"
-  },
-  {
-    "id": "after-hours",
-    "title": "After\nHours",
-    "subtitle": "STARTS LATE",
-    "year": 1999,
-    "category": "Nightlife",
-    "image": "https://picsum.photos/seed/nn-afterhours-club/900/1150",
-    "location": "UNMARKED DOOR / 4AM",
-    "coords": "52.5200° N · 13.4050° W",
-    "description": "The real party started when the lights came up everywhere else. No sign, no flyer, just a number and a knock.",
-    "archiveId": "NN-011-99",
-    "tags": ["4am", "unmarked", "loyal", "haze"],
-    "accent": "4AM"
-  },
-  {
-    "id": "first-car",
-    "title": "First\nCar",
-    "subtitle": "RUSTED WHEELS",
-    "year": 1994,
-    "category": "Cars",
-    "image": "https://picsum.photos/seed/nn-firstcar-rust/900/1150",
-    "location": "DRIVEWAY / DOESN'T START",
-    "coords": "42.3314° N · 83.0458° W",
-    "description": "Three hundred dollars, a tape deck that ate everything, and freedom that smelled like motor oil and pine air freshener.",
-    "archiveId": "NN-012-94",
-    "tags": ["rust", "tape-deck", "freedom", "oil"],
-    "accent": "RUNS OK"
-  },
+{
+  "id": "xavier-f1-mechanic",
+  "title": "Paddock\nIncident",
+  "subtitle": "MONACO GRAND PRIX, LATE 1970S",
+  "year": 1988,
+  "category": "Cars",
+  "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781701050/garden-design-AI_Generated-048764aa-b89b-4e6c-88fe-37a436be3ec9_c3xldv.png",
+  "location": "Monaco, allegedly / pit lane access disputed",
+  "coords": "43.7347° N · 7.4206° E",
+  "description": "Xavier appeared in the paddock wearing greasy overalls and the confidence of a man who had not been formally invited. Mechanics later confirmed he tightened nothing, explained everything, and stood suspiciously close to the fastest car.",
+  "archiveId": "MS-078-78",
+  "tags": ["fake-archive", "formula-1", "monaco", "paddock", "1978", "motorsport"],
+  "accent": "ACCESS UNVERIFIED"
+},
+  
   {
   "id": "xavier-enters-the-room",
   "title": "The Room\nBecomes Evidence",
@@ -180,5 +153,20 @@
   "archiveId": "SC-026-98",
   "tags": ["fake-archive", "basement-disco", "swiss-chaos", "1998", "evidence"],
   "accent": "AUTHENTICITY DOUBTFUL"
+},
+
+{
+  "id": "xavier-new-skiing-method",
+  "title": "The Federation\nAsks Him To Stop",
+  "subtitle": "VERBIER, 1976. XAVIER DEMONSTRATES A NEW SKIING METHOD.",
+  "year": 1976,
+  "category": "Alpine Incidents",
+  "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698277/garden-design-AI_Generated-5aa3d4ae-b72f-4ba7-b594-447cf5f887b0_vtx0nl.png",
+  "location": "Verbier, Switzerland / competition slope, allegedly",
+  "coords": "46.0966° N · 7.2286° E",
+  "description": "Xavier arrived with confidence, limited preparation, and a deeply personal understanding of gravity. The technique was described by officials as “not skiing,” and by Xavier as “an alpine reimagining of movement.”",
+  "archiveId": "AI-076-76",
+  "tags": ["fake-archive", "alpine-incident", "verbier", "ski-culture", "1976", "federation-warning"],
+  "accent": "TECHNIQUE UNRECOGNIZED"
 }
 ]

@@ -49,19 +49,67 @@
   },
   {
     "id": "cars-roads",
-    "title": "Cars & Roads",
-    "blurb": "Rust, tape decks and horizons that never got any closer.",
-    "cover": "https://picsum.photos/seed/nn-coll-cars/1000/700",
+    "title": "Alpine Incidents",
+	"blurb": "Ski suits, questionable technique and descents that became administrative matters.",
+	"cover": "https://ourverbier.ch/wp-content/uploads/2022/04/Verbier-Place-Central-80_4618-91-54.jpg",
     "coords": "FOLDER / A-04",
     "theme": { "accentRgb": "92 156 214", "hue": "150deg", "era": "ROUTE · RUST" },
     "photos": [
-      { "id": "col-cars-roads-01", "title": "ROLL 01 / FRAME 01", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-1/900/1150" },
-      { "id": "col-cars-roads-02", "title": "ROLL 01 / FRAME 02", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-2/900/1150" },
-      { "id": "col-cars-roads-03", "title": "ROLL 01 / FRAME 03", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-3/900/1150" },
-      { "id": "col-cars-roads-04", "title": "ROLL 01 / FRAME 04", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-4/900/1150" },
-      { "id": "col-cars-roads-05", "title": "ROLL 01 / FRAME 05", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-5/900/1150" },
-      { "id": "col-cars-roads-06", "title": "ROLL 01 / FRAME 06", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-6/900/1150" }
-    ]
+    {
+      "id": "col-alpine-incidents-01",
+      "title": "ROLL 01 / FRAME 01",
+      "meta": "VERBIER · FEDERATION NOTICE",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698277/garden-design-AI_Generated-5aa3d4ae-b72f-4ba7-b594-447cf5f887b0_vtx0nl.png"
+    },
+    {
+      "id": "col-alpine-incidents-02",
+      "title": "ROLL 01 / FRAME 02",
+      "meta": "COMPETITION SLOPE · METHOD UNRECOGNIZED",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698277/garden-design-AI_Generated-3a359ca7-c600-4a23-b93f-acca8b771717_ypz1va.png"
+    },
+    {
+      "id": "col-alpine-incidents-03",
+      "title": "ROLL 01 / FRAME 03",
+      "meta": "CHAIRLIFT SECTOR · EMOTIONAL DAMAGE",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698277/garden-design-AI_Generated-0fd941be-95dd-49be-a380-4815206c9c16_cmt4mi.png"
+    },
+    {
+      "id": "col-alpine-incidents-04",
+      "title": "ROLL 01 / FRAME 04",
+      "meta": "ALPINE JURY AREA · SILENCE RECORDED",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698274/garden-design-AI_Generated-a96cc806-52e1-4c14-8896-33b12c18db69_wnnrmz.png"
+    },
+    {
+      "id": "col-alpine-incidents-05",
+      "title": "ROLL 01 / FRAME 05",
+      "meta": "VERBIER · GRAVITY DISPUTED",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698274/garden-design-AI_Generated-1f77e77c-9ffe-4eb4-8d86-b5504e97f12b_wj62ly.png"
+    },
+    {
+      "id": "col-alpine-incidents-06",
+      "title": "ROLL 01 / FRAME 06",
+      "meta": "FINISH LINE · OFFICIALS CONCERNED",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698274/garden-design-AI_Generated-6c9d96f2-ff77-49f7-b286-dbed6a90dc7a_nxnx7g.png"
+    },
+    {
+      "id": "col-alpine-incidents-07",
+      "title": "ROLL 02 / FRAME 01",
+      "meta": "SLOPE CONTROL · CONFIDENCE EXCESSIVE",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698273/garden-design-AI_Generated-d48ce218-fa10-44b0-af07-3fa97e6e563d_gphtca.png"
+    },
+    {
+      "id": "col-alpine-incidents-08",
+      "title": "ROLL 02 / FRAME 02",
+      "meta": "MOUNTAIN STATION · TECHNIQUE UNFILED",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698273/garden-design-AI_Generated-7385d985-7449-4a0a-a650-47aad6535d73_p676wn.png"
+    },
+    {
+      "id": "col-alpine-incidents-09",
+      "title": "ROLL 02 / FRAME 03",
+      "meta": "ARCHIVE REVIEW · STOP REQUESTED",
+      "image": "https://res.cloudinary.com/dsoqloftm/image/upload/v1781698273/garden-design-AI_Generated-c0238f40-33a5-485e-8f62-a499315cd8ed_xlib9z.png"
+    }
+  ]
   },
   {
     "id": "music-rooms",
