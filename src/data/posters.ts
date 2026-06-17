@@ -1,4 +1,6 @@
 import type { Category, Poster } from "../types";
+import { resolveImage } from "../lib/imageSrc";
+import postersData from "./posters.json";
 
 export const CATEGORIES: Category[] = [
   "Friends",
@@ -12,190 +14,14 @@ export const CATEGORIES: Category[] = [
   "Culture",
 ];
 
-/** seeded picsum photos render reliably; ArchiveImage applies duotone +
- *  falls back to a procedural CSS texture if the network is unavailable. */
-const img = (seed: string) =>
-  `https://picsum.photos/seed/${seed}/900/1150`;
-
-export const POSTERS: Poster[] = [
-  {
-    id: "basement-sessions",
-    title: "Basement\nSessions",
-    subtitle: "LATE NIGHT MUSIC",
-    year: 1992,
-    category: "Music",
-    image: img("nn-basement-amp"),
-    location: "EAST WAREHOUSE / LOWER LEVEL",
-    coords: "40.7128° N · 74.0060° W",
-    description:
-      "Concrete walls sweating bass. A borrowed amp, two decks and a single red bulb. Nobody remembers who brought the smoke machine.",
-    archiveId: "NN-001-92",
-    tags: ["bass", "tape", "smoke", "after-dark"],
-    accent: "NO RULES",
-  },
-  {
-    id: "friday-nights",
-    title: "Friday\nNights",
-    subtitle: "BAD DECISIONS",
-    year: 1994,
-    category: "Nightlife",
-    image: img("nn-friday-crowd"),
-    location: "DOWNTOWN / 3000 PEOPLE",
-    coords: "41.8781° N · 87.6298° W",
-    description:
-      "3000 people and one fire exit. Sweat on the ceiling, a kick drum you felt in your teeth, and a sunrise nobody planned for.",
-    archiveId: "NN-002-94",
-    tags: ["crowd", "sweat", "strobe", "loud"],
-    accent: "SOLD OUT",
-  },
-  {
-    id: "city-lights",
-    title: "City\nLights",
-    subtitle: "LATE NIGHTS",
-    year: 1991,
-    category: "Street",
-    image: img("nn-city-neon"),
-    location: "5TH & VINE / WET ASPHALT",
-    coords: "34.0522° N · 118.2437° W",
-    description:
-      "Rain on the lens, neon bleeding into the gutter. A whole city pretending it wasn't watching us walk home.",
-    archiveId: "NN-003-91",
-    tags: ["neon", "rain", "midnight", "asphalt"],
-    accent: "WET FILM",
-  },
-  {
-    id: "skate-or-die",
-    title: "Skate\nor Die",
-    subtitle: "CONCRETE GODS",
-    year: 1993,
-    category: "Skate",
-    image: img("nn-skate-ramp"),
-    location: "DRAINAGE DITCH / NO TRESPASSING",
-    coords: "33.4484° N · 112.0740° W",
-    description:
-      "An empty pool, a borrowed deck, and a security guard who pretended not to see. Scarred shins, perfect grip tape.",
-    archiveId: "NN-004-93",
-    tags: ["deck", "grind", "scars", "ditch"],
-    accent: "SLAM",
-  },
-  {
-    id: "family-first",
-    title: "Family\nFirst",
-    subtitle: "SUNDAY KITCHENS",
-    year: 1990,
-    category: "Family",
-    image: img("nn-family-porch"),
-    location: "HOME / THE OLD PORCH",
-    coords: "39.7392° N · 104.9903° W",
-    description:
-      "Plastic tablecloth, a camcorder nobody knew how to use, and a grandmother who narrated every frame. The realest archive of all.",
-    archiveId: "NN-005-90",
-    tags: ["porch", "camcorder", "warmth", "sunday"],
-    accent: "WARM",
-  },
-  {
-    id: "cassette-culture",
-    title: "Cassette\nCulture",
-    subtitle: "120 MINUTES",
-    year: 1992,
-    category: "Music",
-    image: img("nn-cassette-tape"),
-    location: "BEDROOM STUDIO / DUBBED x40",
-    coords: "47.6062° N · 122.3321° W",
-    description:
-      "Hand-drawn J-cards and a pause button worn smooth. The mixtape was the message; the hiss was the warmth.",
-    archiveId: "NN-006-92",
-    tags: ["mixtape", "hiss", "dubbed", "j-card"],
-    accent: "REWIND",
-  },
-  {
-    id: "road-trip",
-    title: "Road\nTrip",
-    subtitle: "NO MAP",
-    year: 1995,
-    category: "Travel",
-    image: img("nn-road-desert"),
-    location: "ROUTE / SOMEWHERE WEST",
-    coords: "36.1699° N · 115.1398° W",
-    description:
-      "A full tank, a dead radio, and a horizon that kept lying about how close it was. We slept in the car and called it freedom.",
-    archiveId: "NN-007-95",
-    tags: ["highway", "desert", "gas-station", "horizon"],
-    accent: "1505 MI",
-  },
-  {
-    id: "block-party",
-    title: "Block\nParty",
-    subtitle: "HOT ASPHALT",
-    year: 1997,
-    category: "Friends",
-    image: img("nn-block-street"),
-    location: "OUR STREET / HYDRANT OPEN",
-    coords: "40.6782° N · 73.9442° W",
-    description:
-      "Speakers in a window, a hydrant cracked open, and every kid on the block convinced they invented summer.",
-    archiveId: "NN-008-97",
-    tags: ["summer", "speakers", "neighbors", "hydrant"],
-    accent: "FREE",
-  },
-  {
-    id: "trainyard-graffiti",
-    title: "Trainyard\nGraffiti",
-    subtitle: "FRESH BURNERS",
-    year: 1996,
-    category: "Culture",
-    image: img("nn-train-graf"),
-    location: "RAIL DEPOT / LANE 7",
-    coords: "51.5074° N · 0.1278° W",
-    description:
-      "Cans rattling in a backpack, a lookout on the fence, and a piece that lived exactly one morning before the buff.",
-    archiveId: "NN-009-96",
-    tags: ["spray", "rails", "lookout", "burner"],
-    accent: "BUFFED",
-  },
-  {
-    id: "beach-days",
-    title: "Beach\nDays",
-    subtitle: "SALT & GRAIN",
-    year: 1998,
-    category: "Travel",
-    image: img("nn-beach-surf"),
-    location: "SOUTH SHORE / LOW TIDE",
-    coords: "21.3069° N · 157.8583° W",
-    description:
-      "Disposable camera crusted with salt, a cooler full of warm soda, and a sunburn we'd feel for a week.",
-    archiveId: "NN-010-98",
-    tags: ["salt", "tide", "disposable", "sunburn"],
-    accent: "SANDY",
-  },
-  {
-    id: "after-hours",
-    title: "After\nHours",
-    subtitle: "STARTS LATE",
-    year: 1999,
-    category: "Nightlife",
-    image: img("nn-afterhours-club"),
-    location: "UNMARKED DOOR / 4AM",
-    coords: "52.5200° N · 13.4050° W",
-    description:
-      "The real party started when the lights came up everywhere else. No sign, no flyer, just a number and a knock.",
-    archiveId: "NN-011-99",
-    tags: ["4am", "unmarked", "loyal", "haze"],
-    accent: "4AM",
-  },
-  {
-    id: "first-car",
-    title: "First\nCar",
-    subtitle: "RUSTED WHEELS",
-    year: 1994,
-    category: "Cars",
-    image: img("nn-firstcar-rust"),
-    location: "DRIVEWAY / DOESN'T START",
-    coords: "42.3314° N · 83.0458° W",
-    description:
-      "Three hundred dollars, a tape deck that ate everything, and freedom that smelled like motor oil and pine air freshener.",
-    archiveId: "NN-012-94",
-    tags: ["rust", "tape-deck", "freedom", "oil"],
-    accent: "RUNS OK",
-  },
-];
+/**
+ * The archive is sourced from `posters.json` (edit that file to add photos).
+ * Each entry's `image` is a Cloudinary public ID or any full URL — see
+ * `lib/imageSrc.ts` and `PHOTOS.md`. `resolveImage` turns it into a real src;
+ * `ArchiveImage` falls back to a procedural placeholder if it fails to load.
+ */
+export const POSTERS: Poster[] = (postersData as Poster[]).map((p) => ({
+  ...p,
+  category: p.category as Category,
+  image: resolveImage(p.image),
+}));

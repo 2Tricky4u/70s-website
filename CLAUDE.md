@@ -53,8 +53,10 @@ The worn look is layered, not a single overlay:
 - `AnimatePresence` children need stable `key`s. **Do not re-key a `layoutId` element while it is mid-presence** — remounting a shared-layout node during its exit corrupts `AnimatePresence` and can leave a `fixed` overlay capturing clicks (the "open image → next → close → site unclickable" bug). `ExpandedPosterModal`'s content div intentionally has no `key={poster.id}`.
 - `StickyFooterBar` hides before the real `Footer` via an `IntersectionObserver` with `rootMargin`.
 
-### Data shapes (`src/types.ts`)
-`Poster` is the universal photo shape used by the grid and modal. `Collection` carries `theme: CollectionTheme` (`accentRgb`, `hue`, `era`) plus a generated `CollectionPhoto[]`. To add an archive memory, append to `data/posters.ts`; to add a collection, append to `data/collections.ts` (use `buildPhotos(...)` and give it a `theme`).
+### Data shapes (`src/types.ts`) + photo manifests
+`Poster` is the universal photo shape used by the grid and modal. `Collection` carries `theme: CollectionTheme` (`accentRgb`, `hue`, `era`) plus `CollectionPhoto[]`.
+
+Photo data lives in **JSON manifests**, not TypeScript: `src/data/posters.json` (archive) and `src/data/collections.json` (collections + their `photos`). `src/data/posters.ts` / `collections.ts` only import the JSON, run each `image` through `resolveImage` (`src/lib/imageSrc.ts`), and derive each collection's `count` from `photos.length` (keep these honest). Image bytes are **externally hosted** — an `image` value is a Cloudinary public ID (expanded with `f_auto,q_auto,c_limit,w_1600`) or any full URL (passed through). Set `CLOUDINARY_CLOUD` once in `imageSrc.ts`. To add a photo, append an entry to the relevant JSON — see `PHOTOS.md`. `ArchiveImage`'s `onError` placeholder covers failed loads.
 
 ## Conventions
 - Self-hosted fonts only (`@font-face` in `index.css`, files in `public/fonts/`). Tailwind families: `font-display` (Anton), `font-condensed` (Oswald), `font-mono` (Roboto Mono), `font-plex` (IBM Plex Mono — used for menu + tag selection).

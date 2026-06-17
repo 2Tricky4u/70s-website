@@ -1,0 +1,82 @@
+[
+  {
+    "id": "nightlife",
+    "title": "Nightlife",
+    "blurb": "Strobes, smoke and unmarked doors. The decade after midnight.",
+    "cover": "https://picsum.photos/seed/nn-coll-nightlife/1000/700",
+    "coords": "FOLDER / A-01",
+    "theme": { "accentRgb": "201 84 222", "hue": "240deg", "era": "AFTER DARK · 4AM" },
+    "photos": [
+      { "id": "col-nightlife-01", "title": "ROLL 01 / FRAME 01", "meta": "UNMARKED DOOR · 4AM", "image": "https://picsum.photos/seed/nightlife-1/900/1150" },
+      { "id": "col-nightlife-02", "title": "ROLL 01 / FRAME 02", "meta": "UNMARKED DOOR · 4AM", "image": "https://picsum.photos/seed/nightlife-2/900/1150" },
+      { "id": "col-nightlife-03", "title": "ROLL 01 / FRAME 03", "meta": "UNMARKED DOOR · 4AM", "image": "https://picsum.photos/seed/nightlife-3/900/1150" },
+      { "id": "col-nightlife-04", "title": "ROLL 01 / FRAME 04", "meta": "UNMARKED DOOR · 4AM", "image": "https://picsum.photos/seed/nightlife-4/900/1150" },
+      { "id": "col-nightlife-05", "title": "ROLL 01 / FRAME 05", "meta": "UNMARKED DOOR · 4AM", "image": "https://picsum.photos/seed/nightlife-5/900/1150" },
+      { "id": "col-nightlife-06", "title": "ROLL 01 / FRAME 06", "meta": "UNMARKED DOOR · 4AM", "image": "https://picsum.photos/seed/nightlife-6/900/1150" }
+    ]
+  },
+  {
+    "id": "street-summer",
+    "title": "Street Summer",
+    "blurb": "Cracked hydrants, hot asphalt, the block before everyone left.",
+    "cover": "https://picsum.photos/seed/nn-coll-street/1000/700",
+    "coords": "FOLDER / A-02",
+    "theme": { "accentRgb": "255 75 11", "hue": "-18deg", "era": "HOT ASPHALT · SUMMER" },
+    "photos": [
+      { "id": "col-street-summer-01", "title": "ROLL 01 / FRAME 01", "meta": "OUR BLOCK · HYDRANT OPEN", "image": "https://picsum.photos/seed/street-summer-1/900/1150" },
+      { "id": "col-street-summer-02", "title": "ROLL 01 / FRAME 02", "meta": "OUR BLOCK · HYDRANT OPEN", "image": "https://picsum.photos/seed/street-summer-2/900/1150" },
+      { "id": "col-street-summer-03", "title": "ROLL 01 / FRAME 03", "meta": "OUR BLOCK · HYDRANT OPEN", "image": "https://picsum.photos/seed/street-summer-3/900/1150" },
+      { "id": "col-street-summer-04", "title": "ROLL 01 / FRAME 04", "meta": "OUR BLOCK · HYDRANT OPEN", "image": "https://picsum.photos/seed/street-summer-4/900/1150" },
+      { "id": "col-street-summer-05", "title": "ROLL 01 / FRAME 05", "meta": "OUR BLOCK · HYDRANT OPEN", "image": "https://picsum.photos/seed/street-summer-5/900/1150" },
+      { "id": "col-street-summer-06", "title": "ROLL 01 / FRAME 06", "meta": "OUR BLOCK · HYDRANT OPEN", "image": "https://picsum.photos/seed/street-summer-6/900/1150" }
+    ]
+  },
+  {
+    "id": "analog-family",
+    "title": "Analog Family",
+    "blurb": "Camcorder tapes, porch light, the people who built the archive.",
+    "cover": "https://picsum.photos/seed/nn-coll-family/1000/700",
+    "coords": "FOLDER / A-03",
+    "theme": { "accentRgb": "224 158 70", "hue": "-30deg", "era": "SUNDAY · SUPER-8" },
+    "photos": [
+      { "id": "col-analog-family-01", "title": "ROLL 01 / FRAME 01", "meta": "THE OLD PORCH · CAMCORDER", "image": "https://picsum.photos/seed/analog-family-1/900/1150" },
+      { "id": "col-analog-family-02", "title": "ROLL 01 / FRAME 02", "meta": "THE OLD PORCH · CAMCORDER", "image": "https://picsum.photos/seed/analog-family-2/900/1150" },
+      { "id": "col-analog-family-03", "title": "ROLL 01 / FRAME 03", "meta": "THE OLD PORCH · CAMCORDER", "image": "https://picsum.photos/seed/analog-family-3/900/1150" },
+      { "id": "col-analog-family-04", "title": "ROLL 01 / FRAME 04", "meta": "THE OLD PORCH · CAMCORDER", "image": "https://picsum.photos/seed/analog-family-4/900/1150" },
+      { "id": "col-analog-family-05", "title": "ROLL 01 / FRAME 05", "meta": "THE OLD PORCH · CAMCORDER", "image": "https://picsum.photos/seed/analog-family-5/900/1150" },
+      { "id": "col-analog-family-06", "title": "ROLL 01 / FRAME 06", "meta": "THE OLD PORCH · CAMCORDER", "image": "https://picsum.photos/seed/analog-family-6/900/1150" }
+    ]
+  },
+  {
+    "id": "cars-roads",
+    "title": "Cars & Roads",
+    "blurb": "Rust, tape decks and horizons that never got any closer.",
+    "cover": "https://picsum.photos/seed/nn-coll-cars/1000/700",
+    "coords": "FOLDER / A-04",
+    "theme": { "accentRgb": "92 156 214", "hue": "150deg", "era": "ROUTE · RUST" },
+    "photos": [
+      { "id": "col-cars-roads-01", "title": "ROLL 01 / FRAME 01", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-1/900/1150" },
+      { "id": "col-cars-roads-02", "title": "ROLL 01 / FRAME 02", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-2/900/1150" },
+      { "id": "col-cars-roads-03", "title": "ROLL 01 / FRAME 03", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-3/900/1150" },
+      { "id": "col-cars-roads-04", "title": "ROLL 01 / FRAME 04", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-4/900/1150" },
+      { "id": "col-cars-roads-05", "title": "ROLL 01 / FRAME 05", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-5/900/1150" },
+      { "id": "col-cars-roads-06", "title": "ROLL 01 / FRAME 06", "meta": "SOMEWHERE WEST · NO MAP", "image": "https://picsum.photos/seed/cars-roads-6/900/1150" }
+    ]
+  },
+  {
+    "id": "music-rooms",
+    "title": "Music Rooms",
+    "blurb": "Basements, bedroom studios and the warm hiss of dubbed tape.",
+    "cover": "https://picsum.photos/seed/nn-coll-music/1000/700",
+    "coords": "FOLDER / A-05",
+    "theme": { "accentRgb": "138 196 74", "hue": "70deg", "era": "DUBBED · 120 MIN" },
+    "photos": [
+      { "id": "col-music-rooms-01", "title": "ROLL 01 / FRAME 01", "meta": "BEDROOM STUDIO · DUBBED x40", "image": "https://picsum.photos/seed/music-rooms-1/900/1150" },
+      { "id": "col-music-rooms-02", "title": "ROLL 01 / FRAME 02", "meta": "BEDROOM STUDIO · DUBBED x40", "image": "https://picsum.photos/seed/music-rooms-2/900/1150" },
+      { "id": "col-music-rooms-03", "title": "ROLL 01 / FRAME 03", "meta": "BEDROOM STUDIO · DUBBED x40", "image": "https://picsum.photos/seed/music-rooms-3/900/1150" },
+      { "id": "col-music-rooms-04", "title": "ROLL 01 / FRAME 04", "meta": "BEDROOM STUDIO · DUBBED x40", "image": "https://picsum.photos/seed/music-rooms-4/900/1150" },
+      { "id": "col-music-rooms-05", "title": "ROLL 01 / FRAME 05", "meta": "BEDROOM STUDIO · DUBBED x40", "image": "https://picsum.photos/seed/music-rooms-5/900/1150" },
+      { "id": "col-music-rooms-06", "title": "ROLL 01 / FRAME 06", "meta": "BEDROOM STUDIO · DUBBED x40", "image": "https://picsum.photos/seed/music-rooms-6/900/1150" }
+    ]
+  }
+]
